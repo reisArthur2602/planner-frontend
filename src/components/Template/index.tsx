@@ -26,6 +26,7 @@ const Template = ({ children }: Props) => {
                   width={30}
                   height={30}
                 />
+                <span>5</span>
               </button>
             </div>
           </nav>

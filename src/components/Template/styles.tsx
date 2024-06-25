@@ -27,6 +27,7 @@ const Header = styled.header`
       display: flex;
       align-items: center;
       gap: 1.125rem;
+      
       a {
         text-decoration: none;
         font-weight: 500;
@@ -39,6 +40,23 @@ const Header = styled.header`
 
       button {
         border: 0;
+        position: relative;
+
+        span {
+          height: 1.875rem;
+          width: 1.875rem;
+          background-color: var(--violet-700);
+          color: var(--violet-text-100);
+          font-size: 0.75rem;
+          font-weight: 600;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: -18px;
+          right: -10px;
+        }
       }
     }
   }
