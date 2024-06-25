@@ -6,7 +6,7 @@ interface IFilter extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
 }
 
-export const Filter = ({ active, title, ...rest }: IFilter) => {
+const Filter = ({ active, title, ...rest }: IFilter) => {
   return (
     <S.FilterCard active={active} {...rest}>
       <img src={FilterIcon} alt="Icone de filtro" width={24} height={21} />
@@ -14,3 +14,4 @@ export const Filter = ({ active, title, ...rest }: IFilter) => {
     </S.FilterCard>
   );
 };
+export default Filter

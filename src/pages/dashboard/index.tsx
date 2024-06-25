@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Filter } from '../../components';
+
 import * as S from './styles';
+import Filter from '../../components/Filter';
+import TaskCard from '../../components/TaskCard';
 
 type FilterOptions = 'all' | 'today' | 'week' | 'month' | 'year';
 
@@ -36,6 +38,18 @@ export const Dashboard = () => {
           active={filterActived === 'year'}
         />
       </S.FilterArea>
+
+      <section>
+        <S.Title>Minhas Tarefas</S.Title>
+        <S.TaskArea>
+          <TaskCard
+            title="Titulo da tarefa"
+            type={4}
+            when="2024-06-26T19:27:00.000Z"
+            id="123456789"
+          />
+        </S.TaskArea>
+      </section>
     </S.Container>
   );
 };
