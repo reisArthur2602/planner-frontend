@@ -1,41 +1,43 @@
 import { useState } from 'react';
 
 import * as S from './styles';
-import Filter from '../../components/Filter';
+import Filter, { FilterOptions } from '../../components/Filter';
 import TaskCard from '../../components/TaskCard';
 
-type FilterOptions = 'all' | 'today' | 'week' | 'month' | 'year';
-
 export const Dashboard = () => {
-  const [filterActived, setFilterActived] = useState<FilterOptions>('all');
+  const [activeFilter, setActiveFilter] = useState<FilterOptions>('all');
+
+  const handleFilterClick = (filter: FilterOptions) => {
+    setActiveFilter(filter);
+  };
 
   return (
     <S.Container>
       <S.FilterArea>
         <Filter
-          title="Todos"
-          onClick={() => setFilterActived('all')}
-          active={filterActived === 'all'}
+          filter="all"
+          activeFilter={activeFilter}
+          onClick={handleFilterClick}
         />
         <Filter
-          title="Hoje"
-          onClick={() => setFilterActived('today')}
-          active={filterActived === 'today'}
+          filter="today"
+          activeFilter={activeFilter}
+          onClick={handleFilterClick}
         />
         <Filter
-          title="Semana"
-          onClick={() => setFilterActived('week')}
-          active={filterActived === 'week'}
+          filter="week"
+          activeFilter={activeFilter}
+          onClick={handleFilterClick}
         />
         <Filter
-          title="Mês"
-          onClick={() => setFilterActived('month')}
-          active={filterActived === 'month'}
+          filter="month"
+          activeFilter={activeFilter}
+          onClick={handleFilterClick}
         />
         <Filter
-          title="Ano"
-          onClick={() => setFilterActived('year')}
-          active={filterActived === 'year'}
+          filter="year"
+          activeFilter={activeFilter}
+          onClick={handleFilterClick}
         />
       </S.FilterArea>
 
