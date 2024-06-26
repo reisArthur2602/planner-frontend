@@ -1,4 +1,4 @@
-import typeIcons from '../../utils/typeIcons';
+import typeIcons from '../../utils/type';
 import * as S from './styles';
 import { useMemo } from 'react';
 import { format } from 'date-fns/format';

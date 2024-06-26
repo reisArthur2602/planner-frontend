@@ -41,7 +41,9 @@ font: inherit;
 cursor: pointer;
 outline: none; 
 background: 0;
+border: 0;
 }
+
 
 
 p, h1, h2, h3, h4, h5, h6 {
