@@ -1,26 +1,25 @@
-import typeIcons from '../../utils/type';
 import * as S from './styles';
 import { useMemo } from 'react';
 import { format } from 'date-fns/format';
+import { Icons, TypesActions } from '../../utils/type';
 
 interface ITaskCard {
   id: string;
-  type: number;
+  type: TypesActions;
   title: string;
   when: string;
 }
 
 const TaskCard = ({ id, title, type, when }: ITaskCard) => {
-  const date: string = useMemo(
-    () => format(new Date(when), 'dd/MM/yyyy'),
-    [when]
-  );
-  const hour: string = useMemo(() => format(new Date(when), 'HH:mm'), [when]);
+  const typeIcon = Icons.find((i) => i.type === type);
+
+  const date = format(new Date(when), 'dd/MM/yyyy');
+  const hour = format(new Date(when), 'HH:mm');
 
   return (
     <S.Container to={`/task/${id}`}>
       <img
-        src={typeIcons[type]}
+        src={typeIcon?.icon}
         alt="Categoria da tarefa"
         width={60}
         height={60}

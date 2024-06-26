@@ -46,7 +46,7 @@ export const Dashboard = () => {
         <S.TaskArea>
           <TaskCard
             title="Titulo da tarefa"
-            type={4}
+            type="study"
             when="2024-06-26T19:27:00.000Z"
             id="123456789"
           />

@@ -18,6 +18,7 @@ const TypesData = {
 } as const;
 
 export type TypesActions = keyof typeof TypesData;
+
 type TypesResults = (typeof TypesData)[keyof typeof TypesData];
 
 interface IIcons {
@@ -35,14 +36,4 @@ export const Icons: IIcons[] = [
   { type: 'travel', icon: TravelIcon },
 ];
 
-const typeIcons = [
-  CodeIcon,
-  StudyIcon,
-  GymIcon,
-  WorkIcon,
-  FoodIcon,
-  PeopleIcon,
-  TravelIcon,
-];
 
-export default typeIcons;
