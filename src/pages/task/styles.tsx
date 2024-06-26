@@ -10,12 +10,17 @@ const Form = styled.form`
   margin: 0 auto;
 `;
 
+const ButtonsArea = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-const TypeIcons = styled.div`
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-`
+  button {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--violet-text-100);
+  }
+`;
 
-export { Form , TypeIcons };
+export { Form, ButtonsArea };

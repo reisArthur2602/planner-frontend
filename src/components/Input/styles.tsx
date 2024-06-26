@@ -20,7 +20,6 @@ const InputContainer = styled.label`
       border-color: var(--violet-text-200);
     }
   }
-
   input[type='date'],
   input[type='time'] {
     padding: 0.5938rem 0.75rem;
@@ -56,4 +55,6 @@ const TextAreaContainer = styled.label`
   }
 `;
 
-export { InputContainer, TextAreaContainer };
+
+
+export { InputContainer, TextAreaContainer};
