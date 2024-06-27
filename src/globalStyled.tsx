@@ -17,7 +17,12 @@ const GlobalStyled = createGlobalStyle`
 }
 
 * {
+  padding: 0;
   margin: 0;
+  text-decoration: none;
+  list-style: none;
+  outline: none; 
+  font-family: inherit;
 }
 
 body { 
@@ -37,13 +42,10 @@ img, picture, video, canvas, svg {
 
 input, button, textarea, select {
 color: inherit;
-font: inherit;
 cursor: pointer;
-outline: none; 
 background: 0;
 border: 0;
 }
-
 
 
 p, h1, h2, h3, h4, h5, h6 {

@@ -1,4 +1,4 @@
-import { Icons, TypesActions } from '../../utils/type';
+import { Icons, TypesActions } from '../../types/task';
 interface ISelectType {
   typeActive: TypesActions;
   onClick: (type: TypesActions) => void;
