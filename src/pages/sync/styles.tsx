@@ -34,8 +34,8 @@ const TitleSubtitleBox = styled.div`
 `;
 
 const QrCodeArea = styled.div`
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 `;
 
-export { Box, TitleSubtitleBox, Container ,QrCodeArea };
+export { Box, TitleSubtitleBox, Container, QrCodeArea };
