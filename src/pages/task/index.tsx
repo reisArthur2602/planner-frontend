@@ -3,7 +3,7 @@ import * as S from './styles';
 import SelectType from '../../components/SelectType';
 import { useState } from 'react';
 import { TypesActions } from '../../utils/type';
-import { Field, GhostButton, TextArea } from '../../components';
+import { ButtonAction, Field, GhostButton, TextArea } from '../../components';
 import Checkbox from '../../components/Checkbox';
 
 export const Task = () => {
@@ -33,6 +33,7 @@ export const Task = () => {
         />
         <GhostButton type="button">Excluir</GhostButton>
       </S.ButtonsArea>
+      <ButtonAction>Salvar</ButtonAction>
     </S.Form>
   );
 };

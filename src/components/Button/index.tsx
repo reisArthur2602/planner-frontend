@@ -2,8 +2,8 @@ import * as S from './styles';
 
 type ButtonProps = React.ComponentProps<'button'>;
 
-const ButtonAction = ({ ...rest }: ButtonProps) => {
-  return <button>Button</button>;
+const ButtonAction = ({ children, ...rest }: ButtonProps) => {
+  return <S.ButtonAction {...rest}>{children}</S.ButtonAction>;
 };
 
 const GhostButton = ({ children, ...rest }: ButtonProps) => {
