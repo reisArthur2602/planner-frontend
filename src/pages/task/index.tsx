@@ -3,13 +3,12 @@ import * as S from './styles';
 import SelectType from '../../components/SelectType';
 import { useState } from 'react';
 import { TypesActions } from '../../utils/type';
-import { Field, TextArea } from '../../components';
+import { Field, GhostButton, TextArea } from '../../components';
 import Checkbox from '../../components/Checkbox';
 
 export const Task = () => {
   const [type, setType] = useState<TypesActions>('code');
   const [done, setDone] = useState<boolean>(false);
-  console.log(done);
   const handleTypeClick = (type: TypesActions) => {
     setType(type);
   };
@@ -32,7 +31,7 @@ export const Task = () => {
           checked={done}
           onChange={() => setDone(!done)}
         />
-        <button>Excluir</button>
+        <GhostButton type="button">Excluir</GhostButton>
       </S.ButtonsArea>
     </S.Form>
   );
