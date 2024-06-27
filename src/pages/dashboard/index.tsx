@@ -1,48 +1,15 @@
-import { useState } from 'react';
-
 import * as S from './styles';
-import Filter, { FilterOptions } from '../../components/Filter';
+
 import TaskCard from '../../components/TaskCard';
+import FilterBar from '../../components/FilterBar';
 
 export const Dashboard = () => {
-  const [activeFilter, setActiveFilter] = useState<FilterOptions>('all');
-
-  const handleFilterClick = (filter: FilterOptions) => {
-    setActiveFilter(filter);
-  };
-
   return (
     <S.Container>
-      <S.FilterArea>
-        <Filter
-          filter="all"
-          activeFilter={activeFilter}
-          onClick={handleFilterClick}
-        />
-        <Filter
-          filter="today"
-          activeFilter={activeFilter}
-          onClick={handleFilterClick}
-        />
-        <Filter
-          filter="week"
-          activeFilter={activeFilter}
-          onClick={handleFilterClick}
-        />
-        <Filter
-          filter="month"
-          activeFilter={activeFilter}
-          onClick={handleFilterClick}
-        />
-        <Filter
-          filter="year"
-          activeFilter={activeFilter}
-          onClick={handleFilterClick}
-        />
-      </S.FilterArea>
-
       <section>
         <S.Title>Minhas Tarefas</S.Title>
+        <FilterBar />
+        
         <S.TaskArea>
           <TaskCard
             title="Titulo da tarefa"
