@@ -1,11 +1,13 @@
+import { useState } from 'react';
+import { useTask } from '../../hooks/useTask';
 import { ButtonAction, GhostButton, Input, Textarea } from '../../components';
 import CategoryBar from '../../components/CategoryBar';
 import Checkbox from '../../components/Checkbox';
 import * as S from './styles';
 
-import { useState } from 'react';
 
 export const Task = () => {
+  const { create } = useTask();
   const [done, setDone] = useState<boolean>(false);
 
   return (

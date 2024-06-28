@@ -10,6 +10,7 @@ const InputContainer = styled.label`
   }
 
   input[type='text'] {
+    font-size: 0.875rem;
     padding: 0.5938rem 0.75rem;
     border: 0.125rem solid var(--violet-700);
     border-radius: 0.375rem;
@@ -21,10 +22,10 @@ const InputContainer = styled.label`
     }
   }
   input[type='date'],
-  
   input[type='time'] {
     padding: 0.5938rem 0.75rem;
     border-bottom: 0.125rem solid var(--violet-700);
+    font-size: 0.875rem;
 
     &::placeholder {
       color: var(--violet-text-200);
@@ -43,6 +44,7 @@ const TextAreaContainer = styled.label`
     font-weight: 500;
   }
   textarea {
+    font-size: 0.875rem;
     border: 0.125rem solid var(--violet-700);
     border-radius: 0.375rem;
     padding: 0.5938rem 0.75rem;
