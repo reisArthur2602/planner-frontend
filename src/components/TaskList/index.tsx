@@ -6,6 +6,7 @@ import { getCategoryIcon } from '../../utils/getCategoryIcon';
 import * as S from './styles';
 import { TaskContext } from '../../context/TaskContext';
 import { useTask } from '../../hooks/useTask';
+import { format } from 'date-fns';
 
 const TaskList = () => {
   const { filterType } = useContext(TaskContext);
@@ -18,28 +19,31 @@ const TaskList = () => {
       const data = await getTasks(filter);
       setTasks(data);
     } catch (error: any) {
+      setTasks([])
       console.log(error);
     }
   };
 
   useEffect(() => {
-    fetchTasks(filterType)
+    fetchTasks(filterType);
+    console.log(tasks)
   }, [filterType]);
 
-  console.log(tasks);
   return (
     <S.TaskListContainer>
       <h1>Minhas Tarefas</h1>
 
       <S.TaskListArea>
-        <S.TaskListItem>
-          <S.TaskIcon>{getCategoryIcon('gym')}</S.TaskIcon>
-          <h4>Titulo da tarefa</h4>
-          <S.TaskInfo>
-            <span>27/06/2027</span>
-            <span>18:00</span>
-          </S.TaskInfo>
-        </S.TaskListItem>
+        {tasks.map((t) => (
+          <S.TaskListItem key={t.id}>
+            <S.TaskIcon>{getCategoryIcon('gym')}</S.TaskIcon>
+            <h4>{t.title}</h4>
+            <S.TaskInfo>
+              <span>{format(new Date(t.when), 'dd/MM/yyyy')}</span>
+              <span>{format(new Date(t.when), 'HH:mm')}</span>
+            </S.TaskInfo>
+          </S.TaskListItem>
+        ))}
       </S.TaskListArea>
     </S.TaskListContainer>
   );
