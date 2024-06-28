@@ -21,6 +21,7 @@ const InputContainer = styled.label`
     }
   }
   input[type='date'],
+  
   input[type='time'] {
     padding: 0.5938rem 0.75rem;
     border-bottom: 0.125rem solid var(--violet-700);

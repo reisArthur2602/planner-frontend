@@ -1,10 +1,9 @@
+import { ButtonAction, GhostButton, Input, Textarea } from '../../components';
+import CategoryBar from '../../components/CategoryBar';
+import Checkbox from '../../components/Checkbox';
 import * as S from './styles';
 
 import { useState } from 'react';
-
-import { ButtonAction, Field, GhostButton, TextArea } from '../../components';
-import Checkbox from '../../components/Checkbox';
-import CategoryBar from '../../components/CategoryBar';
 
 export const Task = () => {
   const [done, setDone] = useState<boolean>(false);
@@ -12,14 +11,14 @@ export const Task = () => {
   return (
     <S.Form>
       <CategoryBar />
-      <Field type="text" label="Título" placeholder="Título da tarefa" />
-      <TextArea
+      <Input type="text" label="Título" placeholder="Título da tarefa" />
+      <Textarea
         label="Descrição"
         placeholder="Descrição da tarefa..."
         rows={6}
       />
-      <Field type="date" label="Data" />
-      <Field type="time" label="Hora" />
+      <Input type="date" label="Data" />
+      <Input type="time" label="Hora" />
 
       <S.ButtonsArea>
         <Checkbox

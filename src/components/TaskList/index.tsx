@@ -26,7 +26,6 @@ const TaskList = () => {
 
   useEffect(() => {
     fetchTasks(filterType);
-    console.log(tasks)
   }, [filterType]);
 
   return (

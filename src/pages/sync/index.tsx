@@ -1,4 +1,4 @@
-import { ButtonAction, Field } from '../../components';
+import { ButtonAction, Input,  } from '../../components';
 import * as S from './styles';
 import Qr from 'qrcode.react';
 export const Sync = () => {
@@ -12,7 +12,7 @@ export const Sync = () => {
         <S.QrCodeArea>
           <Qr value="getmacaddress" size={280} />
         </S.QrCodeArea>
-        <Field type="text" placeholder="Endereço Mac" />
+        <Input type="text" placeholder="Endereço Mac"/>
         <ButtonAction>Sincronizar</ButtonAction>
       </S.Box>
     </S.Container>
