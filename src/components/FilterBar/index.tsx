@@ -1,14 +1,17 @@
-import { useContext } from 'react';
+import { useContext, } from 'react';
 import { TaskContext } from '../../context/TaskContext';
-// import FilterIcon from '../../assets/icons/filter-icon.svg';
-import { FilterData } from '../../types/filter-type';
+
+import { FilterData,} from '../../types/filter-type';
 
 import * as S from './styles';
 import { FilterIcon } from 'lucide-react';
+import { useTask } from '../../hooks/useTask';
+
 
 const FilterBar = () => {
   const { handleFilter, filterType } = useContext(TaskContext);
-
+  const { getTasks } = useTask();
+ 
   return (
     <S.FilterArea>
       {FilterData.map((t) => (
