@@ -30,3 +30,17 @@ export const getCategoryIcon = (type: CategoryTypes) => {
       return <ListChecksIcon />;
   }
 };
+
+export interface ICategoryIcons {
+  type: CategoryTypes;
+  icon: JSX.Element;
+}
+export const categoryIcons: ICategoryIcons[] = [
+  { type: 'code', icon: <CodeXml /> },
+  { type: 'study', icon: <NotepadTextIcon /> },
+  { type: 'gym', icon: <DumbbellIcon /> },
+  { type: 'work', icon: <BriefcaseBusinessIcon /> },
+  { type: 'food', icon: <AppleIcon /> },
+  { type: 'people', icon: <UserIcon /> },
+  { type: 'travel', icon: <PlaneIcon /> },
+];

@@ -7,6 +7,7 @@ export type CategoryTypes =
   | 'travel'
   | 'code';
 
+
 export type TaskResponse = {
   id: string;
   type: CategoryTypes;
@@ -16,3 +17,5 @@ export type TaskResponse = {
   isGuest: boolean;
   created: Date;
 };
+
+
