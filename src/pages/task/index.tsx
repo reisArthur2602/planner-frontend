@@ -9,16 +9,18 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { TaskSchema } from '../../schemas/taskSchema';
 import { TaskFormProps } from '../../types/task';
 import { useForm } from 'react-hook-form';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export const Task = () => {
-  const [done, setDone] = useState<boolean>(false);
-  const { create } = useTask();
   const { category } = useContext(TaskContext);
-
+  const { create } = useTask();
+  const [done, setDone] = useState<boolean>(false);
+  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
     formState: { errors },
+    reset,
   } = useForm<TaskFormProps>({
     resolver: zodResolver(TaskSchema),
   });
@@ -32,7 +34,15 @@ export const Task = () => {
       description,
       when: `${date}T${time}:00.000`,
     };
-   
+
+    try {
+      await create(formatData).then(() => {
+        reset();
+        navigate('/');
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
