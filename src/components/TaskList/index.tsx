@@ -7,6 +7,7 @@ import * as S from './styles';
 import { TaskContext } from '../../context/TaskContext';
 import { useTask } from '../../hooks/useTask';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 const TaskList = () => {
   const { filterType } = useContext(TaskContext);
@@ -19,7 +20,7 @@ const TaskList = () => {
       const data = await getTasks(filter);
       setTasks(data);
     } catch (error: any) {
-      setTasks([])
+      setTasks([]);
       console.log(error);
     }
   };
@@ -31,16 +32,17 @@ const TaskList = () => {
   return (
     <S.TaskListContainer>
       <h1>Minhas Tarefas</h1>
-
       <S.TaskListArea>
         {tasks.map((t) => (
           <S.TaskListItem key={t.id}>
-            <S.TaskIcon>{getCategoryIcon('gym')}</S.TaskIcon>
-            <h4>{t.title}</h4>
-            <S.TaskInfo>
-              <span>{format(new Date(t.when), 'dd/MM/yyyy')}</span>
-              <span>{format(new Date(t.when), 'HH:mm')}</span>
-            </S.TaskInfo>
+            <Link to={`/task/${t.id}`}>
+              <S.TaskIcon>{getCategoryIcon('gym')}</S.TaskIcon>
+              <h4>{t.title}</h4>
+              <S.TaskInfo>
+                <span>{format(new Date(t.when), 'dd/MM/yyyy')}</span>
+                <span>{format(new Date(t.when), 'HH:mm')}</span>
+              </S.TaskInfo>
+            </Link>
           </S.TaskListItem>
         ))}
       </S.TaskListArea>

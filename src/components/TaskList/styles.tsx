@@ -24,23 +24,23 @@ const TaskListArea = styled.ul`
 `;
 
 const TaskListItem = styled.li`
-  height: 11.25rem;
-  padding: 1.125rem;
-  border: 0.0625rem solid var(--violet-700);
-  border-radius: 0.375rem;
-  text-decoration: none;
+  a {
+    height: 11.25rem;
+    padding: 1.125rem;
+    border: 0.0625rem solid var(--violet-700);
+    border-radius: 0.375rem;
+    text-decoration: none;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
-  h4 {
-    font-weight: 600;
-    color: var(--violet-text-100);
+    h4 {
+      font-weight: 600;
+      color: var(--violet-text-100);
+    }
   }
-
-  
 `;
 
 const TaskIcon = styled.div`
@@ -51,18 +51,18 @@ const TaskIcon = styled.div`
   font-size: 1.5rem;
   height: 3.75rem;
   width: 3.75rem;
+  color: var(--violet-text-100);
   background-color: var(--violet-500);
   border-radius: 50%;
 `;
 
-
-const TaskInfo = styled.strong`
- width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 500;
-    font-size: 0.75rem;
-    color: var(--violet-text-200);
+const TaskInfo = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--violet-text-200);
 `;
 
-export { TaskListContainer, TaskListItem, TaskListArea, TaskIcon , TaskInfo  };
+export { TaskListContainer, TaskListItem, TaskListArea, TaskIcon, TaskInfo };
