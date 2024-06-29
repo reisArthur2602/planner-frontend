@@ -7,7 +7,6 @@ export const App = () => {
   return (
     <BrowserRouter>
       <TaskProvider>
-        {' '}
         <Template>
           <MainRoutes />
         </Template>

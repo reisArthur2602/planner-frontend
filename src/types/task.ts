@@ -1,3 +1,6 @@
+import { z } from "zod";
+import { TaskSchema } from "../schemas/taskSchema";
+
 export type CategoryTypes =
   | 'study'
   | 'gym'
@@ -25,3 +28,5 @@ export type TaskProps = {
   when: string;
   description: string;
 };
+
+export type TaskFormProps = z.TypeOf<typeof TaskSchema>;
