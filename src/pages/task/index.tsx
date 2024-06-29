@@ -53,15 +53,27 @@ export const Task = () => {
         label="Título"
         placeholder="Título da tarefa"
         {...register('title')}
+        helptext={errors.title?.message}
       />
       <Textarea
         label="Descrição"
         placeholder="Descrição da tarefa..."
         rows={6}
         {...register('description')}
+        helptext={errors.description?.message}
       />
-      <Input type="date" label="Data" {...register('date')} />
-      <Input type="time" label="Hora" {...register('time')} />
+      <Input
+        type="date"
+        label="Data"
+        {...register('date')}
+        helptext={errors.date?.message}
+      />
+      <Input
+        type="time"
+        label="Hora"
+        {...register('time')}
+        helptext={errors.time?.message}
+      />
 
       <S.ButtonsArea>
         <Checkbox

@@ -57,7 +57,10 @@ const TextAreaContainer = styled.label`
     }
   }
 `;
+const HelpText = styled.p`
+  font-size: 0.75rem;
+  color: #e5484d;
+  font-weight: 500;
+`;
 
-
-
-export { InputContainer, TextAreaContainer};
+export { InputContainer, TextAreaContainer , HelpText };
