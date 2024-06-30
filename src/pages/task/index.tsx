@@ -9,7 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { TaskSchema } from '../../schemas/taskSchema';
 import { TaskFormProps } from '../../types/task';
 import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Task = () => {
   const { category } = useContext(TaskContext);

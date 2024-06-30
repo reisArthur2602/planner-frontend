@@ -23,7 +23,6 @@ const TaskProvider = ({ children }: Props) => {
     setCategory(category);
   };
 
-  console.log(filterType);
   return (
     <TaskContext.Provider
       value={{ filterType, category, handleFilter, handleCategory }}
