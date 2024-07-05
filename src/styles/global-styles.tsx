@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
  
 :root{
     --violet-text-100:#E2DDFE ;
@@ -13,15 +13,16 @@ const GlobalStyles = createGlobalStyle`
 }
 
 *, *::before, *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 * {
   margin: 0;
   padding: 0;
   outline: none;
-  text-decoration: none;
   list-style: none;
+  border-style: none;
+  font-family: inherit;
 }
 
 body { 
@@ -42,7 +43,8 @@ img, picture, video, canvas, svg {
 input, button, textarea, select {
   cursor: pointer;
   color: inherit;
-  background: 0;
+  background: transparent;
+ 
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -53,6 +55,11 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-`;
 
-export { GlobalStyles };
+a{
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+`;
