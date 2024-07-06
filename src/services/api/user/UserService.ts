@@ -10,7 +10,13 @@ const create = async (params: Omit<User, 'id'>): Promise<User> => {
   return data;
 };
 
+const details = async (): Promise<User> => {
+  const { data } = await Api.get('/user/me');
+  return data;
+};
+
 export const UserService = {
   auth,
   create,
+  details,
 };

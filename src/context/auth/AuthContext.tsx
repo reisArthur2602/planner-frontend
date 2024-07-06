@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useEffect, useMemo, useState } from 'react';
 import { AuthProvideChildren, IAuthContext } from './types';
 import { UserService } from '../../services/api/user/UserService';
 import { User } from '../../types/user';
@@ -10,8 +10,24 @@ export const AuthContext = createContext({} as IAuthContext);
 
 export const AuthProvider = ({ children }: AuthProvideChildren) => {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const { saveToken } = useToken();
   const navigate = useNavigate();
+
+  const fetchUser = async () => {
+    try {
+      await UserService.details().then((response) => {
+        setUser(response);
+      });
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
   const handleLogin = async (email: string) => {
     await UserService.auth({ email }).then((res) => {
@@ -35,7 +51,7 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, handleLogin, handleRegister, isAuthenticated }}
+      value={{ user, handleLogin, handleRegister, isAuthenticated, loading }}
     >
       {children}
     </AuthContext.Provider>
