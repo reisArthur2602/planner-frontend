@@ -1,4 +1,5 @@
 import { AxiosError } from 'axios';
+import { toast } from 'react-toastify';
 
 export const errorInterceptor = (error: AxiosError) => {
   if (error.response?.status == 400) {
@@ -6,10 +7,12 @@ export const errorInterceptor = (error: AxiosError) => {
       error.response?.data as [{ path: string; message: string }]
     ).map((err) => err.message);
 
-    return Promise.reject(errorMessage.forEach((err) => alert(err)));
+    errorMessage.forEach((err) => toast.error(err));
+
+    return Promise.reject(errorMessage);
   }
 
   const errorMessage = (error.response?.data as { message: string }).message;
-  alert(errorMessage);
+  toast.error(errorMessage);
   return Promise.reject(errorMessage);
 };
