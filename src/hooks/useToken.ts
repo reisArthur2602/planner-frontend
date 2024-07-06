@@ -1,5 +1,4 @@
-import { Api } from "../services/api/axios-config";
-
+import { Api } from '../services/api/axios-config';
 
 interface IUseToken {
   saveToken(token: string): void;
@@ -10,7 +9,7 @@ interface IUseToken {
 export const useToken = (): IUseToken => {
   const saveToken = (token: string) => {
     localStorage.setItem('access-token', token);
-    Api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    Api.defaults.headers['userid'] = token;
     return;
   };
   const getToken = () => {
@@ -18,7 +17,7 @@ export const useToken = (): IUseToken => {
   };
 
   const deleteToken = () => {
-    delete Api.defaults.headers.common['Authorization'];
+    delete Api.defaults.headers['userid'];
     localStorage.removeItem('access-token');
     return;
   };

@@ -7,12 +7,25 @@ import { Subtitle } from '../../styles/subtitle';
 import { Title } from '../../styles/title';
 import { Box } from '../../styles/box';
 import { Highlight } from '../../styles/highlight';
+import { useState } from 'react';
+
+import { useAuth } from '../../hooks/useAuth';
 
 export const Login = () => {
+  const [email, setEmail] = useState('');
+  const { handleLogin } = useAuth();
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email) return alert('O email é obrigatório');
+    await handleLogin(email);
+    setEmail('');
+  };
+
   return (
     <Layout>
       <Content>
-        <Form>
+        <Form onSubmit={(e) => onSubmit(e)}>
           <Box direction="column" align="center">
             <Title>Entra na sua conta</Title>
             <Subtitle>Preencha o formulário para entrar na sua conta.</Subtitle>
@@ -21,13 +34,16 @@ export const Login = () => {
           <Box direction="column">
             <Input
               label="Email"
-              type="email"
+              type="text"
               placeholder="seuemail@email.com"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              // required
             />
             <Button>Entrar</Button>
           </Box>
           <Link to="/">
-            Já possui uma conta? <Highlight>Fazer Login </Highlight>
+            Já possui uma conta? <Highlight>Fazer Login</Highlight>
           </Link>
         </Form>
       </Content>
