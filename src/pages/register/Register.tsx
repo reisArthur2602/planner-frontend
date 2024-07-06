@@ -13,12 +13,13 @@ import { useAuth } from '../../hooks/useAuth';
 
 export const Register = () => {
   const [email, setEmail] = useState('');
-
+  const { handleRegister } = useAuth();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return alert('O email é obrigatório');
-   
+    await handleRegister(email);
+    setEmail('');
   };
 
   return (
@@ -39,7 +40,7 @@ export const Register = () => {
               value={email}
               // required
             />
-            <Button>Cadastrar</Button>
+            <Button>Entrar</Button>
           </Box>
           <Link to="/">
             Já possui uma conta? <Highlight>Fazer Login</Highlight>

@@ -22,10 +22,21 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
     });
   };
 
+  const handleRegister = async (email: string) => {
+    await UserService.create({ email }).then((res) => {
+      setUser(res);
+      saveToken(res.id);
+      toast.success('Cadastro realizado com sucesso! Seja Bem-vindo');
+      navigate('/');
+    });
+  };
+
   const isAuthenticated = useMemo(() => !!user, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, handleLogin, isAuthenticated }}>
+    <AuthContext.Provider
+      value={{ user, handleLogin, handleRegister, isAuthenticated }}
+    >
       {children}
     </AuthContext.Provider>
   );
