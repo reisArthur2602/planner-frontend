@@ -11,15 +11,14 @@ import { useState } from 'react';
 
 import { useAuth } from '../../hooks/useAuth';
 
-export const Login = () => {
+export const Register = () => {
   const [email, setEmail] = useState('');
-  const { handleLogin } = useAuth();
+
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return alert('O email é obrigatório');
-    await handleLogin(email);
-    setEmail('');
+   
   };
 
   return (
@@ -27,8 +26,8 @@ export const Login = () => {
       <Content>
         <Form onSubmit={(e) => onSubmit(e)}>
           <Box direction="column" align="center">
-            <Title>Entra na sua conta</Title>
-            <Subtitle>Preencha o formulário para entrar na sua conta.</Subtitle>
+            <Title>Crie sua conta</Title>
+            <Subtitle>Preencha o formulário para criar sua conta</Subtitle>
           </Box>
 
           <Box direction="column">
@@ -40,10 +39,10 @@ export const Login = () => {
               value={email}
               // required
             />
-            <Button>Entrar</Button>
+            <Button>Cadastrar</Button>
           </Box>
-          <Link to="/register">
-            Não possui uma conta? <Highlight>Fazer Cadastro</Highlight>
+          <Link to="/">
+            Já possui uma conta? <Highlight>Fazer Login</Highlight>
           </Link>
         </Form>
       </Content>
