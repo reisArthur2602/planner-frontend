@@ -1,7 +1,7 @@
 import { FilterIcon } from 'lucide-react';
 import { useFilter } from '../../../../hooks/useFilter';
 import { Box } from '../../../../styles/box';
-import { FilterData } from '../../../../utils/filter/filter-data';
+import { FilterData } from '../../../../utils/filter/FilterData';
 import * as S from './style';
 
 export const FilterBar = () => {
