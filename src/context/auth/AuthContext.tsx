@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
     try {
       await UserService.details().then((response) => {
         setUser(response);
+        setLoading(false);
       });
     } catch (error) {
       console.log(error);
@@ -34,7 +35,8 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
       setUser(res);
       saveToken(res.id);
       toast.success('Bem-vindo de volta! Login realizado com sucesso.');
-      navigate('/');
+      setLoading(false);
+      navigate('/dashboard');
     });
   };
 
@@ -43,7 +45,8 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
       setUser(res);
       saveToken(res.id);
       toast.success('Cadastro realizado com sucesso! Seja Bem-vindo');
-      navigate('/');
+      setLoading(false);
+      navigate('/dashboard');
     });
   };
 
