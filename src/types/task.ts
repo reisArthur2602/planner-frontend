@@ -12,6 +12,6 @@ export type Task = {
   description: string;
   type: TypeTask;
   done: boolean;
-  when: Date;
+  when: string;
   user_id: string;
 };
