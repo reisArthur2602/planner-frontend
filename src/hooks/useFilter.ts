@@ -1,16 +1,6 @@
-import { useState } from 'react';
-import { FilterOptions } from '../types/filter';
+import { useContext } from 'react';
+import { FilterContext } from '../context/filter/FilterContext';
 
-interface IUseFilter {
-  filter: FilterOptions;
-  toggleFilter(filter: FilterOptions): void;
-}
-
-export const useFilter = (): IUseFilter => {
-  const [filter, setFilter] = useState<FilterOptions>('all');
-
-  const toggleFilter = (filter: FilterOptions) => {
-    setFilter(filter);
-  };
-  return { filter, toggleFilter };
+export const useFilter = () => {
+  return useContext(FilterContext);
 };
