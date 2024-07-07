@@ -23,7 +23,7 @@ export const Login = () => {
   };
 
   return (
-    <Layout>
+    
       <Content>
         <Form onSubmit={(e) => onSubmit(e)}>
           <Box direction="column" align="center">
@@ -47,6 +47,6 @@ export const Login = () => {
           </Link>
         </Form>
       </Content>
-    </Layout>
+    
   );
 };

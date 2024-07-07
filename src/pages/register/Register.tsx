@@ -23,7 +23,7 @@ export const Register = () => {
   };
 
   return (
-    <Layout>
+  
       <Content>
         <Form onSubmit={(e) => onSubmit(e)}>
           <Box direction="column" align="center">
@@ -47,6 +47,6 @@ export const Register = () => {
           </Link>
         </Form>
       </Content>
-    </Layout>
+    
   );
 };
