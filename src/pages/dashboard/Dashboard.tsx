@@ -1,7 +1,12 @@
-import * as S from "./styles"
+
+import { Box } from '../../styles/box';
+import { FilterBar } from './sessions/filter-bar/FilterBar';
+import * as S from './styles';
 
 export const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <Box direction="column" gap="32px">
+      <FilterBar />
+    </Box>
+  );
+};

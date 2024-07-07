@@ -4,6 +4,7 @@ interface IBox {
   direction?: 'column' | 'row';
   align?: 'center' | 'normal';
   justify?: 'space-between' | 'center';
+  gap?: "6px" | "12px" | "18px" | "24px" | "32px"  ;
 }
 
 export const Box = styled.div<IBox>`
@@ -12,5 +13,5 @@ export const Box = styled.div<IBox>`
   flex-direction: ${(props) => props.direction};
   align-items: ${(props) => props.align};
   justify-content: ${(props) => props.justify};
-  gap: 0.75rem;
+  gap: ${(props) => props.gap};
 `;

@@ -23,30 +23,28 @@ export const Login = () => {
   };
 
   return (
-    
-      <Content>
-        <Form onSubmit={(e) => onSubmit(e)}>
-          <Box direction="column" align="center">
-            <Title>Entra na sua conta</Title>
-            <Subtitle>Preencha o formulário para entrar na sua conta.</Subtitle>
-          </Box>
+    <Content>
+      <Form onSubmit={(e) => onSubmit(e)}>
+        <Box direction="column" align="center" gap="6px">
+          <Title>Entra na sua conta</Title>
+          <Subtitle>Preencha o formulário para entrar na sua conta.</Subtitle>
+        </Box>
 
-          <Box direction="column">
-            <Input
-              label="Email"
-              type="text"
-              placeholder="seuemail@email.com"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              // required
-            />
-            <Button>Entrar</Button>
-          </Box>
-          <Link to="/register">
-            Não possui uma conta? <Highlight>Fazer Cadastro</Highlight>
-          </Link>
-        </Form>
-      </Content>
-    
+        <Box direction="column" gap="18px">
+          <Input
+            label="Email"
+            type="text"
+            placeholder="seuemail@email.com"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            // required
+          />
+          <Button>Entrar</Button>
+        </Box>
+        <Link to="/register">
+          Não possui uma conta? <Highlight>Fazer Cadastro</Highlight>
+        </Link>
+      </Form>
+    </Content>
   );
 };

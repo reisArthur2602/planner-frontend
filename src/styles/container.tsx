@@ -6,4 +6,5 @@ width: 100%;
 margin: 0 auto;
 display: flex;
 flex: 1;
+padding-block: 2.5rem;
 `

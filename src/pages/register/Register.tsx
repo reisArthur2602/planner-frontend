@@ -26,12 +26,12 @@ export const Register = () => {
   
       <Content>
         <Form onSubmit={(e) => onSubmit(e)}>
-          <Box direction="column" align="center">
+          <Box direction="column" align="center" gap='6px'>
             <Title>Crie sua conta</Title>
             <Subtitle>Preencha o formulário para criar sua conta</Subtitle>
           </Box>
 
-          <Box direction="column">
+          <Box direction="column" gap='18px'>
             <Input
               label="Email"
               type="text"
