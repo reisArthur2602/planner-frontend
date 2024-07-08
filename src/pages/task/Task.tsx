@@ -24,6 +24,7 @@ export const Task = () => {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const data = {
       title,
       description,
@@ -36,6 +37,7 @@ export const Task = () => {
       back();
     });
   };
+
   return (
     <Content>
       <Form onSubmit={(e) => onSubmit(e)}>
