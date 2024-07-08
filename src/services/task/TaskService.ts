@@ -12,8 +12,14 @@ const late = async (): Promise<Task[] | []> => {
   const { data } = await Api.get('/task/late');
   return data;
 };
+const create = async (
+  params: Pick<Task, 'title' | 'description' | 'when' | "type">
+): Promise<void> => {
+  await Api.post('/task', params);
+};
 
 export const TaskService = {
   getByFilter,
   late,
+  create,
 };
