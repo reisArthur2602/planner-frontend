@@ -3,7 +3,7 @@ import { Box } from '../../styles/box';
 
 import { Icon } from '../../styles/icon';
 
-import { getCategoryIcon } from '../../utils/filter/GetCategory';
+import { getTypeIcon } from '../../utils/task/GetTypeIcon';
 import { TypeTask } from '../../types/task';
 import * as S from './style';
 
@@ -16,7 +16,7 @@ interface ITaskList {
 export const Tasklist = ({ title, type, when }: ITaskList) => {
   return (
     <S.TaskCard>
-      <Icon>{getCategoryIcon(type)}</Icon>
+      <Icon>{getTypeIcon(type)}</Icon>
       <h4>{title}</h4>
       <Box justify="space-between">
         <span>{format(new Date(when), 'dd/MM/yyyy')}</span>

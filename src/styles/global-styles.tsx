@@ -23,6 +23,7 @@ export const GlobalStyles = createGlobalStyle`
   list-style: none;
   border-style: none;
   font-family: inherit;
+  font-size:inherit;
 }
 
 body { 
@@ -42,9 +43,8 @@ img, picture, video, canvas, svg {
 
 input, button, textarea, select {
   cursor: pointer;
-  color: inherit;
   background: transparent;
- 
+  color: inherit;
 }
 
 p, h1, h2, h3, h4, h5, h6 {

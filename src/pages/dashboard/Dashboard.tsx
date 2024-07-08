@@ -6,12 +6,12 @@ import { Title } from '../../styles/title';
 import { FilterBar } from './sessions/filter-bar/FilterBar';
 import { Grid } from '../../styles/grid';
 import { Tasklist } from '../../components/task-list/Tasklist';
-import { useFilter } from '../../hooks/useFilter';
+import { useDashboard } from '../../hooks/useDashboard';
 import { TaskService } from '../../services/task/TaskService';
 
 export const Dashboard = () => {
   const [tasks, setTasks] = useState<Task[] | []>([]);
-  const { filter } = useFilter();
+  const { filter } = useDashboard();
 
   const fetchTasks = async () => {
     const data = await TaskService.getByFilter(filter);

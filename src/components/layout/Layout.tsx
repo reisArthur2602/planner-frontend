@@ -22,7 +22,7 @@ export const Layout = ({ children }: ILayout) => {
           {isAuthenticated && (
             <S.LayoutNav>
               <Link to="/dashboard">Início</Link>
-              <Link to="/task">Tarefa</Link>
+              <Link to="/dashboard/task">Tarefa</Link>
               <Link to="/sync">Sincronizar</Link>
               <Link to="/dashboard/late">
                 <BellIcon size={24} />
