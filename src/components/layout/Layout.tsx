@@ -4,6 +4,7 @@ import * as S from './styles';
 import { Container } from '../../styles/container';
 import { Link } from 'react-router-dom';
 import { BellIcon } from 'lucide-react';
+
 import { useAuth } from '../../hooks/useAuth';
 
 export interface ILayout {
@@ -17,6 +18,7 @@ export const Layout = ({ children }: ILayout) => {
       <S.LayoutHeader>
         <S.LayoutContent>
           <img src={Logo} alt="logo planner" />
+
           {isAuthenticated && (
             <S.LayoutNav>
               <Link to="/dashboard">Início</Link>
