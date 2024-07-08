@@ -8,6 +8,12 @@ const getByFilter = async (filter: FilterOptions): Promise<Task[] | []> => {
   return data;
 };
 
+const late = async (): Promise<Task[] | []> => {
+  const { data } = await Api.get('/task/late');
+  return data;
+};
+
 export const TaskService = {
   getByFilter,
+  late,
 };

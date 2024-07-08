@@ -16,12 +16,12 @@ export const Dashboard = () => {
   const fetchTasks = async () => {
     const data = await TaskService.getByFilter(filter);
     setTasks(data);
-  };
+  }
 
   useEffect(() => {
     fetchTasks();
   }, [filter]);
-  console.log(tasks);
+
 
   return (
     <Box direction="column" gap="32px">
