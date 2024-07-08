@@ -1,11 +1,11 @@
 import { FilterIcon } from 'lucide-react';
-import { useFilter } from '../../../../hooks/useFilter';
+import { useDashboard } from '../../../../hooks/useDashboard';
 import { Box } from '../../../../styles/box';
 import { FilterData } from '../../../../utils/filter/FilterData';
 import * as S from './style';
 
 export const FilterBar = () => {
-  const { filter, toggleFilter } = useFilter();
+  const { filter, toggleFilter } = useDashboard();
 
   return (
     <Box justify="space-between" gap="32px">

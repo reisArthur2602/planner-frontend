@@ -4,12 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes/AppRoutes';
 import { AuthProvider } from './context/auth/AuthContext';
 import { Layout } from './components';
-import { FilterProvider } from './context/filter/FilterContext';
+import { DashboardProvider } from './context/dashboard/DashboardContext';
 export const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <FilterProvider>
+        <DashboardProvider>
           <Layout>
             <ToastContainer
               position="top-right"
@@ -18,7 +18,7 @@ export const App = () => {
             />
             <AppRoutes />
           </Layout>
-        </FilterProvider>
+        </DashboardProvider>
       </AuthProvider>
     </BrowserRouter>
   );
