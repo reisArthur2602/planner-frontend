@@ -22,7 +22,7 @@ export const Layout = ({ children }: ILayout) => {
               <Link to="/dashboard">Início</Link>
               <Link to="/task">Tarefa</Link>
               <Link to="/sync">Sincronizar</Link>
-              <Link to="/late">
+              <Link to="/dashboard/late">
                 <BellIcon size={24} />
                 <span>2</span>
               </Link>

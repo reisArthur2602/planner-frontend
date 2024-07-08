@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Dashboard, Login, Register } from '../pages';
+import { Dashboard, Late, Login, Register } from '../pages';
 import { Private } from './Private';
 
 export const AppRoutes = () => {
@@ -8,6 +8,7 @@ export const AppRoutes = () => {
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Private><Dashboard /></Private>} />
+      <Route path="/dashboard/late" element={<Private><Late /></Private>} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
