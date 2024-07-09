@@ -48,6 +48,13 @@ export const Edit = () => {
       });
   };
 
+  const handleDelete = async () => {
+    if (window.confirm('Deseja realmente excluir a tarefa?'))
+      await TaskService.remove({ id: id as string });
+    toast.success('Tarefa foi excluída com sucesso!');
+    Redirect('/dashboard');
+  };
+
   useEffect(() => {
     fetchTask();
   }, []);
@@ -101,7 +108,9 @@ export const Edit = () => {
             />
           </Box>
           <Box>
-            <GhostButton type="button">Excluir</GhostButton>
+            <GhostButton type="button" onClick={handleDelete}>
+              Excluir
+            </GhostButton>
             <Button>Salvar</Button>
           </Box>
         </Box>

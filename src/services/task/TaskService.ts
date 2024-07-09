@@ -27,6 +27,9 @@ const create = async (
 const update = async (data: Omit<Task, 'user_id'>): Promise<void> => {
   await Api.put(`/task/${data.id}`, data);
 };
+const remove = async (params: Pick<Task, 'id'>): Promise<void> => {
+  await Api.delete(`/task/${params.id}`);
+};
 
 export const TaskService = {
   getByFilter,
@@ -34,4 +37,5 @@ export const TaskService = {
   late,
   create,
   update,
+  remove
 };
