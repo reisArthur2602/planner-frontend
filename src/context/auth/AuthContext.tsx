@@ -17,8 +17,12 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
   const fetchUser = async () => {
     try {
       if (getToken())
-        await UserService.details().then((response) => setUser(response));
-      setLoading(false);
+        await UserService.details()
+          .then((response) => setUser(response))
+          .then(() => {
+            setLoading(false);
+            navigate('/dashboard');
+          });
     } catch (error) {
       console.log(error);
       setLoading(false);
