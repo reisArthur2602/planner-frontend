@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Container } from '../../styles/container';
+
 
 export const LayoutContainer = styled.div`
   min-height: 100vh;
@@ -16,7 +16,18 @@ export const LayoutHeader = styled.header`
   border-bottom: 2px solid var(--violet-800);
 `;
 
-export const LayoutContent = styled(Container)`
+export const LayoutMain = styled.main`
+max-width: 75.875rem;
+width: 100%;
+margin: 0 auto;
+display: flex;
+flex: 1;
+padding-block: 2.5rem;
+`
+
+
+
+export const LayoutContent = styled(LayoutMain)`
   padding-block: 1.5rem;
   align-items: center;
   justify-content: space-between;
@@ -51,6 +62,12 @@ export const LayoutNav = styled.nav`
   }
 `;
 
+
+
+
+
+
+
 export const LayoutFooter = styled.footer`
   height: 2.5rem;
   text-align: center;
@@ -58,3 +75,5 @@ export const LayoutFooter = styled.footer`
     font-size: 0.75rem;
   }
 `;
+
+

@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 export const Task = () => {
-  const { type } = useDashboard();
+  const { type, toggleType } = useDashboard();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [time, setTime] = useState('');
@@ -34,6 +34,7 @@ export const Task = () => {
 
     await TaskService.create(data).then(() => {
       toast.success('Tarefa criada com sucesso!');
+      toggleType('gym');
       back();
     });
   };
