@@ -17,10 +17,15 @@ const late = async (): Promise<Task[] | []> => {
   const { data } = await Api.get('/task/late');
   return data;
 };
+
 const create = async (
   params: Pick<Task, 'title' | 'description' | 'when' | 'type'>
 ): Promise<void> => {
   await Api.post('/task', params);
+};
+
+const update = async (data: Omit<Task, 'user_id'>): Promise<void> => {
+  await Api.put(`/task/${data.id}`, data);
 };
 
 export const TaskService = {
@@ -28,4 +33,5 @@ export const TaskService = {
   getById,
   late,
   create,
+  update,
 };

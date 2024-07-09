@@ -9,21 +9,21 @@ import { Checkbox } from './session/checkbox/Checkbox';
 import { useEffect, useState } from 'react';
 import { TaskService } from '../../services/task/TaskService';
 import { Task, TypeTask } from '../../types/task';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
+import { toast } from 'react-toastify';
 
 export const Edit = () => {
   const { id } = useParams();
-  const [task, setTask] = useState<Task>();
-  const [type, setType] = useState<TypeTask>();
+  const Redirect = useNavigate();
+  const [type, setType] = useState<TypeTask>('food');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [when, setWhen] = useState('');
-  const [done, setDone] = useState<boolean>();
+  const [done, setDone] = useState<boolean>(false);
 
   const fetchTask = async () => {
     await TaskService.getById(id as string).then((response) => {
-      setTask(response);
       setTitle(response.title);
       setDescription(response.description);
       setWhen(format(new Date(response.when), "yyyy-MM-dd'T'HH:mm"));
@@ -32,17 +32,31 @@ export const Edit = () => {
     });
   };
 
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (window.confirm('Deseja realmente atualizar a tarefa?'))
+      await TaskService.update({
+        id: id as string,
+        description,
+        done,
+        title,
+        type,
+        when: `${when}:00.000`,
+      }).then(() => {
+        toast.success('Tarefa atualizada com sucesso!');
+        Redirect('/dashboard');
+      });
+  };
+
   useEffect(() => {
     fetchTask();
   }, []);
-  console.log(task);
-
   return (
     <Content>
-      <Form>
+      <Form onSubmit={(e) => onSubmit(e)}>
         <Box justify="space-between">
           <Title>Editar Tarefa</Title>
-          <button>
+          <button type="button" onClick={() => Redirect('/dashboard')}>
             <X size={24} />
           </button>
         </Box>
@@ -51,7 +65,6 @@ export const Edit = () => {
           onChange={(e) => setType(e.target.value as TypeTask)}
           value={type}
         >
-          <option>Selecione</option>
           <option value="study">Estudos</option>
           <option value="gym">Academia</option>
           <option value="work">Trabalho</option>
@@ -74,7 +87,7 @@ export const Edit = () => {
           value={description}
         />
         <Input
-          label="Data"
+          label="Data e Hora"
           type="datetime-local"
           onChange={(e) => setWhen(e.target.value)}
           value={when}
@@ -83,7 +96,7 @@ export const Edit = () => {
           <Box>
             <Checkbox
               label="Concluída"
-              onClick={() => setDone(!done)}
+              onChange={() => setDone(!done)}
               checked={done}
             />
           </Box>
