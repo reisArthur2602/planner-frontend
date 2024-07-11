@@ -1,3 +1,4 @@
+
 import QRCode from 'react-qr-code';
 import { Box } from '../../styles/box';
 import { Content } from '../../styles/content';
@@ -15,6 +16,7 @@ export const Sync = () => {
           <p>Suas tarefas serão sincronizadas</p>
         </Box>
         {user && <QRCode value={user.email} size={320} />}
+
       </Box>
     </Content>
   );
