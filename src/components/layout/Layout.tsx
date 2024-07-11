@@ -3,7 +3,7 @@ import Logo from '../../assets/logo.svg';
 import * as S from './styles';
 
 import { Link } from 'react-router-dom';
-import { BellIcon } from 'lucide-react';
+import { BellIcon, LogOut } from 'lucide-react';
 
 import { useAuth } from '../../hooks/useAuth';
 
@@ -32,7 +32,14 @@ export const Layout = ({ children }: ILayout) => {
           )}
         </S.LayoutContent>
       </S.LayoutHeader>
-      <S.LayoutMain>{children}</S.LayoutMain>
+      <S.LayoutMain>
+        {children}
+        {isAuthenticated && (
+          <S.ButtonLogout>
+            <LogOut />
+          </S.ButtonLogout>
+        )}
+      </S.LayoutMain>
       <S.LayoutFooter>@Planner - Organizando sua vida</S.LayoutFooter>
     </S.LayoutContainer>
   );
