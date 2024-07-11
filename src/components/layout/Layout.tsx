@@ -23,7 +23,7 @@ export const Layout = ({ children }: ILayout) => {
             <S.LayoutNav>
               <Link to="/dashboard">Início</Link>
               <Link to="/dashboard/task">Tarefa</Link>
-              <Link to="/sync">Sincronizar</Link>
+              <Link to="/dashboard/sync">Sincronizar</Link>
               <Link to="/dashboard/late">
                 <BellIcon size={24} />
                 <span>2</span>
