@@ -12,7 +12,7 @@ export interface ILayout {
 }
 
 export const Layout = ({ children }: ILayout) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, handleLogout } = useAuth();
   return (
     <S.LayoutContainer>
       <S.LayoutHeader>
@@ -35,7 +35,7 @@ export const Layout = ({ children }: ILayout) => {
       <S.LayoutMain>
         {children}
         {isAuthenticated && (
-          <S.ButtonLogout>
+          <S.ButtonLogout onClick={handleLogout}>
             <LogOut />
           </S.ButtonLogout>
         )}

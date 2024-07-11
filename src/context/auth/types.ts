@@ -6,5 +6,6 @@ export interface IAuthContext {
   loading: boolean;
   handleLogin(email: string): Promise<void>;
   handleRegister(email: string): Promise<void>;
+  handleLogout(): void;
 }
 export type AuthProvideChildren = React.PropsWithChildren;

@@ -11,7 +11,7 @@ export const AuthContext = createContext({} as IAuthContext);
 export const AuthProvider = ({ children }: AuthProvideChildren) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const { saveToken, getToken } = useToken();
+  const { saveToken, getToken, deleteToken } = useToken();
   const navigate = useNavigate();
 
   const fetchUser = async () => {
@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
     } catch (error) {
       console.log(error);
       setLoading(false);
+      navigate('/');
     }
   };
 
@@ -53,11 +54,16 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
     });
   };
 
+  const handleLogout = () => {
+    deleteToken();
+    setUser(null);
+  };
+
   const isAuthenticated = useMemo(() => !!user, [user]);
 
   return (
     <AuthContext.Provider
-      value={{ user, handleLogin, handleRegister, isAuthenticated, loading }}
+      value={{ user, handleLogin, handleRegister, handleLogout ,isAuthenticated, loading }}
     >
       {children}
     </AuthContext.Provider>
