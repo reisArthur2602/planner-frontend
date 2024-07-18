@@ -22,12 +22,10 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
           .then((response) => setUser(response))
           .then(() => {
             setLoading(false);
-            navigate('/dashboard');
           });
     } catch (error) {
       console.log(error);
       setLoading(false);
-      navigate('/');
     }
   };
 
