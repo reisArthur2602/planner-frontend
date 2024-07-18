@@ -5,6 +5,7 @@ interface IBox {
   align?: 'center' | 'normal' ;
   justify?: 'space-between' | 'center' | 'end' | 'start';
   gap?: '6px' | '12px' | '18px' | '24px' | '32px';
+  
 }
 
 export const Box = styled.div<IBox>`

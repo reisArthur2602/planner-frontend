@@ -4,21 +4,15 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes/AppRoutes';
 import { AuthProvider } from './context/auth/AuthContext';
 import { Layout } from './components';
-import { DashboardProvider } from './context/dashboard/DashboardContext';
+
 export const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <DashboardProvider>
-          <Layout>
-            <ToastContainer
-              position="top-right"
-              autoClose={8000}
-              theme="dark"
-            />
-            <AppRoutes />
-          </Layout>
-        </DashboardProvider>
+        <Layout>
+          <ToastContainer position="top-right" autoClose={8000} theme="dark" />
+          <AppRoutes />
+        </Layout>
       </AuthProvider>
     </BrowserRouter>
   );

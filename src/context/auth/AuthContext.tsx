@@ -5,6 +5,7 @@ import { User } from '../../types/user';
 import { useToken } from '../../hooks/useToken';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { DashboardProvider } from '../dashboard/DashboardContext';
 
 export const AuthContext = createContext({} as IAuthContext);
 
@@ -63,9 +64,16 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, handleLogin, handleRegister, handleLogout ,isAuthenticated, loading }}
+      value={{
+        user,
+        handleLogin,
+        handleRegister,
+        handleLogout,
+        isAuthenticated,
+        loading,
+      }}
     >
-      {children}
+      <DashboardProvider>{children}</DashboardProvider>
     </AuthContext.Provider>
   );
 };
