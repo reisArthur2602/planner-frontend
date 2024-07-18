@@ -25,6 +25,7 @@ export const Dashboard = () => {
 
   return (
     <Box direction="column" gap="32px">
+      
       {tasks.length === 0 ? (
         <EmptyTask title="Você não possui nenhuma tarefa pendente" />
       ) : (
