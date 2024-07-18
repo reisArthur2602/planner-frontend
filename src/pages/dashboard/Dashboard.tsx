@@ -8,6 +8,7 @@ import { Grid } from '../../styles/grid';
 import { Tasklist } from '../../components/task-list/Tasklist';
 import { useDashboard } from '../../hooks/useDashboard';
 import { TaskService } from '../../services/task/TaskService';
+import EmptyTask from '../../components/empyt-task/EmptyTask';
 
 export const Dashboard = () => {
   const [tasks, setTasks] = useState<Task[] | []>([]);
@@ -16,22 +17,27 @@ export const Dashboard = () => {
   const fetchTasks = async () => {
     const data = await TaskService.getByFilter(filter);
     setTasks(data);
-  }
+  };
 
   useEffect(() => {
     fetchTasks();
   }, [filter]);
 
-
   return (
     <Box direction="column" gap="32px">
-      <FilterBar />
-      <Title>
-        Minhas Tarefas <Highlight>{`(${tasks.length})`}</Highlight>
-      </Title>
-      <Grid>
-        {tasks && tasks.map((task) => <Tasklist {...task} key={task.id} />)}
-      </Grid>
+      {tasks.length === 0 ? (
+        <EmptyTask title="Você não possui nenhuma tarefa pendente" />
+      ) : (
+        <>
+          <FilterBar />
+          <Title>
+            Minhas Tarefas <Highlight>{`(${tasks.length})`}</Highlight>
+          </Title>
+          <Grid>
+            {tasks && tasks.map((task) => <Tasklist {...task} key={task.id} />)}
+          </Grid>
+        </>
+      )}
     </Box>
   );
 };
