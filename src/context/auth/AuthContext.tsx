@@ -12,17 +12,16 @@ export const AuthContext = createContext({} as IAuthContext);
 export const AuthProvider = ({ children }: AuthProvideChildren) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const { saveToken, getToken, deleteToken } = useToken();
+  const { saveToken, deleteToken } = useToken();
   const navigate = useNavigate();
 
   const fetchUser = async () => {
     try {
-      if (getToken())
-        await UserService.details()
-          .then((response) => setUser(response))
-          .then(() => {
-            setLoading(false);
-          });
+      await UserService.details()
+        .then((response) => setUser(response))
+        .then(() => {
+          setLoading(false);
+        });
     } catch (error) {
       console.log(error);
       setLoading(false);
