@@ -4,15 +4,13 @@ import { Box } from '../../styles/box';
 import { Highlight } from '../../styles/highlight';
 import { Title } from '../../styles/title';
 
-import { Grid } from '../../styles/grid';
-import { Tasklist } from '../../components/task-list/Tasklist';
-
 import { TaskService } from '../../services/task/TaskService';
 import EmptyTask from '../../components/empyt-task/EmptyTask';
 
 import { FILTERS } from '../../utils/filters';
 import { FilterOptions } from './sessions/Filter/filter';
 import { FilterBar } from './sessions/FilterBar';
+import { Tasklist } from '../../components';
 
 export const Dashboard = () => {
   const [filter, setFilter] = useState<FilterOptions>(FILTERS[0].type);
@@ -30,6 +28,7 @@ export const Dashboard = () => {
   return (
     <Box direction="column" gap="32px">
       <FilterBar filter={filter} filters={FILTERS} onChange={setFilter} />
+
       {tasks.length === 0 ? (
         <EmptyTask title="Você não possui nenhuma tarefa pendente" />
       ) : (
@@ -37,9 +36,7 @@ export const Dashboard = () => {
           <Title>
             Minhas Tarefas <Highlight>{`(${tasks.length})`}</Highlight>
           </Title>
-          <Grid>
-            {tasks && tasks.map((task) => <Tasklist {...task} key={task.id} />)}
-          </Grid>
+          <Tasklist tasks={tasks} />
         </>
       )}
     </Box>
