@@ -6,7 +6,7 @@ import { Title } from '../../styles/title';
 import { Task } from '../../types/task';
 import { TaskService } from '../../services/task/TaskService';
 import { Tasklist } from '../../components';
-import EmptyTask from '../../components/empyt-task/EmptyTask';
+import EmptyTask from '../../components/ui/empyt-task/EmptyTask';
 
 export const Late = () => {
   const [tasks, setTasks] = useState<Task[] | []>([]);
@@ -23,15 +23,13 @@ export const Late = () => {
   return (
     <Box direction="column" gap="24px">
       {tasks.length === 0 ? (
-        <EmptyTask title="Você não possui nenhuma tarefa atrasada"/>
+        <EmptyTask title="Você não possui nenhuma tarefa atrasada" />
       ) : (
         <>
           <Title>
             Tarefas Atrasadas <Highlight>{`(${tasks.length})`}</Highlight>
           </Title>
-          <Grid>
-            {tasks && tasks.map((task) => <Tasklist {...task} key={task.id} />)}
-          </Grid>
+          <Tasklist tasks={tasks} />
         </>
       )}
     </Box>

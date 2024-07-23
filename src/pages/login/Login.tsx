@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Input, Layout } from '../../components';
+import { Input} from '../../components';
 import { Button } from '../../styles/button';
 import { Content } from '../../styles/content';
 import { Form } from '../../styles/form';
