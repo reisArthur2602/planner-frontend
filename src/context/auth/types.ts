@@ -8,4 +8,5 @@ export interface IAuthContext {
   handleRegister(email: string): Promise<void>;
   handleLogout(): void;
 }
+
 export type AuthProvideChildren = React.PropsWithChildren;

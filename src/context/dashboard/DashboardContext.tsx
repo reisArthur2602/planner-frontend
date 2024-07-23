@@ -1,8 +1,9 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState } from 'react';
 
 import { DashboardProviderProps, IDashboardContext } from './type';
-import { FilterOptions } from '../../types/filter';
+
 import { TypeTask } from '../../types/task';
+import { FilterOptions } from '../../pages/Dashboard/sessions/Filter/filter';
 
 export const DashboardContext = createContext({} as IDashboardContext);
 

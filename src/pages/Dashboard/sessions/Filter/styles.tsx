@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-interface IFilterCard {
+type FilterCardProps =  {
   active: boolean;
 }
 
-export const FilterCard = styled.button<IFilterCard>`
+export const FilterCard = styled.button<FilterCardProps>`
   display: flex;
   flex: 1;
   flex-direction: column;

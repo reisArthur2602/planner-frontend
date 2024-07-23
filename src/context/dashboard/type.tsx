@@ -1,6 +1,7 @@
 import React from 'react';
-import { FilterOptions } from '../../types/filter';
+
 import { TypeTask } from '../../types/task';
+import { FilterOptions } from '../../pages/Dashboard/sessions/Filter/filter';
 
 export interface IDashboardContext {
   filter: FilterOptions;

@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const { saveToken, deleteToken } = useToken();
-  const navigate = useNavigate();
 
   const fetchUser = async () => {
     try {
@@ -38,7 +37,6 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
       saveToken(res.id);
       toast.success('Bem-vindo de volta! Login realizado com sucesso.');
       setLoading(false);
-      navigate('/dashboard');
     });
   };
 
@@ -48,7 +46,6 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
       saveToken(res.id);
       toast.success('Cadastro realizado com sucesso! Seja Bem-vindo');
       setLoading(false);
-      navigate('/dashboard');
     });
   };
 

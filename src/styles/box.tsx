@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-interface IBox {
+interface IBox extends React.HTMLAttributes<HTMLDivElement> {
   direction?: 'column' | 'row';
-  align?: 'center' | 'normal' ;
+  align?: 'center' | 'normal';
   justify?: 'space-between' | 'center' | 'end' | 'start';
   gap?: '6px' | '12px' | '18px' | '24px' | '32px';
-  
 }
 
 export const Box = styled.div<IBox>`

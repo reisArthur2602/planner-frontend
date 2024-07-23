@@ -1,14 +1,14 @@
-import { FilterOptions } from '../../types/filter';
+import { FilterOptions } from '../pages/Dashboard/sessions/Filter/filter';
 
-interface IFilterData {
+export type FiltersData = {
   type: FilterOptions;
   title: string;
-}
+};
 
-export const FilterData: IFilterData[] = [
+export const FILTERS: FiltersData[] = [
   { type: 'all', title: 'Todos' },
   { type: 'today', title: 'Hoje' },
   { type: 'week', title: 'Semana' },
   { type: 'month', title: 'Mês' },
   { type: 'year', title: 'Ano' },
-] as const;
+];
