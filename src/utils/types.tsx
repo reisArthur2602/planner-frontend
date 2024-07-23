@@ -12,6 +12,7 @@ export type TypeData = {
   type: TypeTask;
   icon: JSX.Element;
 };
+
 export const TYPES: TypeData[] = [
   { type: 'gym', icon: <DumbbellIcon /> },
   { type: 'study', icon: <NotepadTextIcon /> },

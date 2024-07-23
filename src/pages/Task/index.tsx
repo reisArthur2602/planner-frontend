@@ -1,48 +1,43 @@
 import { useState } from 'react';
-import { Input, Textarea } from '../../components';
-import { useDashboard } from '../../hooks/useDashboard';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { TypeTask } from '../../types/task';
+import { TYPES } from '../../utils/types';
 import { TaskService } from '../../services/task/TaskService';
+import { Input, Textarea } from '../../components';
 import { Box } from '../../styles/box';
 import { Button, GhostButton } from '../../styles/button';
 import { Content } from '../../styles/content';
 import { Form } from '../../styles/form';
-import { TypeBar } from './session/type-bar/TypeBar';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { TypeBar } from './sessions/TypeBar';
 
 export const Task = () => {
-  const { type, toggleType } = useDashboard();
+  const [type, setType] = useState<TypeTask>('gym');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [time, setTime] = useState('');
   const [date, setDate] = useState('');
-  const navigate = useNavigate();
 
-  const back = () => {
-    navigate('/dashboard');
-  };
+  const navigate = useNavigate();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const data = {
+    await TaskService.create({
       title,
       description,
       when: `${date}T${time}:00.000`,
       type,
-    };
-
-    await TaskService.create(data).then(() => {
-      toast.success('Tarefa criada com sucesso!');
-      toggleType('gym');
-      back();
     });
+
+    toast.success('Tarefa criada com sucesso!');
+    navigate('/dashboard');
   };
 
   return (
     <Content>
       <Form onSubmit={(e) => onSubmit(e)}>
-        <TypeBar />
+        <TypeBar type={type} types={TYPES} onChange={setType} />
         <Input
           label="Título"
           placeholder="Título da tarefa"
@@ -70,9 +65,10 @@ export const Task = () => {
           value={time}
         />
         <Box justify="end">
-          <GhostButton type="button" onClick={back}>
+          <GhostButton type="button" onClick={() => navigate('/dashboard')}>
             Cancelar
           </GhostButton>
+
           <Button>Criar</Button>
         </Box>
       </Form>
