@@ -8,7 +8,7 @@ import { Button, GhostButton } from '../../styles/button';
 import { Checkbox } from './session/checkbox/Checkbox';
 import { useEffect, useState } from 'react';
 import { TaskService } from '../../services/task/TaskService';
-import { Task, TypeTask } from '../../types/task';
+import { TypeTask } from '../../types/task';
 import { useNavigate, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import { toast } from 'react-toastify';
@@ -58,6 +58,7 @@ export const Edit = () => {
   useEffect(() => {
     fetchTask();
   }, []);
+  
   return (
     <Content>
       <Form onSubmit={(e) => onSubmit(e)}>

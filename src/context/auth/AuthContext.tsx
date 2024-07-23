@@ -1,11 +1,10 @@
 import { createContext, useEffect, useMemo, useState } from 'react';
-import { AuthProvideChildren, IAuthContext } from './types';
+import { AuthProvideChildren, IAuthContext } from './auth';
 import { UserService } from '../../services/api/user/UserService';
 import { User } from '../../types/user';
 import { useToken } from '../../hooks/useToken';
-import { useNavigate } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
-import { DashboardProvider } from '../dashboard/DashboardContext';
 
 export const AuthContext = createContext({} as IAuthContext);
 
@@ -67,7 +66,7 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
         loading,
       }}
     >
-      <DashboardProvider>{children}</DashboardProvider>
+      {children}
     </AuthContext.Provider>
   );
 };
