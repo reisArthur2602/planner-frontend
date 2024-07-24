@@ -6,7 +6,6 @@ import { Title } from '../../styles/title';
 
 import { TaskService } from '../../services/task/TaskService';
 
-
 import { FILTERS } from '../../utils/filters';
 import { FilterOptions } from './sessions/Filter/filter';
 import { FilterBar } from './sessions/FilterBar';
@@ -18,7 +17,7 @@ export const Dashboard = () => {
   const [tasks, setTasks] = useState<Task[] | []>([]);
 
   const fetchTasks = async () => {
-    const data = await TaskService.getByFilter(filter);
+    const data = (await TaskService.getByFilter(filter)).filter((t) => !t.done);
     setTasks(data);
   };
 
