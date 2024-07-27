@@ -6,6 +6,7 @@ import { useToken } from '../../hooks/useToken';
 
 import { toast } from 'react-toastify';
 import { Api } from '../../services/api/axios-config';
+import { LateProvider } from '../Late/LateContext';
 
 export const AuthContext = createContext({} as IAuthContext);
 
@@ -69,7 +70,7 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
         loading,
       }}
     >
-      {children}
+      <LateProvider>{children}</LateProvider>
     </AuthContext.Provider>
   );
 };

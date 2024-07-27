@@ -29,7 +29,6 @@ export const LayoutContent = styled(LayoutMain)`
   padding-block: 1.5rem;
   align-items: center;
   justify-content: space-between;
- 
 `;
 
 export const LayoutNav = styled.nav`

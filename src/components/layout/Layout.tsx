@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { BellIcon, LogOut } from 'lucide-react';
 
 import { useAuth } from '../../hooks/useAuth';
+import { useLate } from '../../hooks/useLate';
 
 export interface ILayout {
   children: ReactNode;
@@ -13,12 +14,12 @@ export interface ILayout {
 
 export const Layout = ({ children }: ILayout) => {
   const { isAuthenticated, handleLogout } = useAuth();
+  const { lateCount } = useLate();
   return (
     <S.LayoutContainer>
       <S.LayoutHeader>
         <S.LayoutContent>
           <img src={Logo} alt="logo planner" />
-
           {isAuthenticated && (
             <S.LayoutNav>
               <Link to="/dashboard">Início</Link>
@@ -26,14 +27,16 @@ export const Layout = ({ children }: ILayout) => {
               <Link to="/dashboard/sync">Sincronizar</Link>
               <Link to="/dashboard/late">
                 <BellIcon size={24} />
-                <span>2</span>
+                {lateCount > 0 && <span>{lateCount}</span>}
               </Link>
             </S.LayoutNav>
           )}
         </S.LayoutContent>
       </S.LayoutHeader>
+
       <S.LayoutMain>
         {children}
+
         {isAuthenticated && (
           <S.ButtonLogout onClick={handleLogout}>
             <LogOut />
