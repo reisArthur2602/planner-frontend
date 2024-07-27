@@ -10,7 +10,7 @@ import { FILTERS } from '../../utils/filters';
 import { FilterOptions } from './sessions/Filter/filter';
 import { FilterBar } from './sessions/FilterBar';
 import { Tasklist } from '../../components';
-import EmptyTask from '../../components/ui/empyt-task/EmptyTask';
+import EmptyTask from '../../components/ui/EmptyTask';
 
 export const Dashboard = () => {
   const [filter, setFilter] = useState<FilterOptions>(FILTERS[0].type);

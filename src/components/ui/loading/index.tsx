@@ -1,6 +1,5 @@
 import { LoaderCircle } from 'lucide-react';
 
-
 import * as S from './styles';
 import { Content } from '../../../styles/content';
 

@@ -1,8 +1,7 @@
 import * as S from './style';
+import { ITextarea } from './textarea';
 
-interface ITextarea extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label: string;
-}
+
 
 export const Textarea = ({ label, ...props }: ITextarea) => {
   return (

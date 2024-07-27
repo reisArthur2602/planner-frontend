@@ -1,8 +1,5 @@
+import { IInput } from './input';
 import * as S from './styles';
-
-interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-}
 
 export const Input = ({ label, ...props }: IInput) => {
   return (

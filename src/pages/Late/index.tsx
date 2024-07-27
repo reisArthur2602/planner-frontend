@@ -6,7 +6,7 @@ import { Title } from '../../styles/title';
 import { Task } from '../../types/task';
 import { TaskService } from '../../services/task/TaskService';
 import { Tasklist } from '../../components';
-import EmptyTask from '../../components/ui/empyt-task/EmptyTask';
+import EmptyTask from '../../components/ui/EmptyTask';
 
 export const Late = () => {
   const [tasks, setTasks] = useState<Task[] | []>([]);
