@@ -50,15 +50,16 @@ export const Edit = () => {
 
   const handleDelete = async () => {
     if (window.confirm('Deseja realmente excluir a tarefa?'))
-      await TaskService.remove({ id: id as string });
-    toast.success('Tarefa foi excluída com sucesso!');
-    Redirect('/dashboard');
+      await TaskService.remove({ id: id as string }).then(() => {
+        toast.success('Tarefa foi excluída com sucesso!');
+        Redirect('/dashboard');
+      });
   };
 
   useEffect(() => {
     fetchTask();
   }, []);
-  
+
   return (
     <Content>
       <Form onSubmit={(e) => onSubmit(e)}>

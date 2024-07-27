@@ -23,10 +23,12 @@ export const Task = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const formatToIso = new Date(`${date}T${time}:00.000`).toISOString();
+
     await TaskService.create({
       title,
       description,
-      when: `${date}T${time}:00.000`,
+      when: formatToIso,
       type,
     });
 

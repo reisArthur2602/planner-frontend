@@ -5,7 +5,8 @@ import { errorInterceptor, responseInterceptor } from './interceptors';
 const { getToken } = useToken();
 
 const Api = axios.create({
-  baseURL: 'http://localhost:3000',
+  // baseURL: 'http://localhost:3000',
+  baseURL: 'https://planner-backend-k43w.onrender.com',
   headers: {
     userid: getToken(),
   },
