@@ -6,7 +6,9 @@ import { useToken } from '../../hooks/useToken';
 
 import { toast } from 'react-toastify';
 import { Api } from '../../services/api/axios-config';
-import { LateProvider } from '../Late/LateContext';
+import { LateProvider } from '../late/LateContext';
+
+
 
 export const AuthContext = createContext({} as IAuthContext);
 

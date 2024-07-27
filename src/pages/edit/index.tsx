@@ -41,7 +41,7 @@ export const Edit = () => {
         done,
         title,
         type,
-        when: `${when}:00.000`,
+        when: new Date(`${when}:00.000`).toISOString(),
       }).then(() => {
         toast.success('Tarefa atualizada com sucesso!');
         Redirect('/dashboard');

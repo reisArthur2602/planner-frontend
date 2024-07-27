@@ -1,4 +1,4 @@
-export * from './layout/Layout';
+export * from './Layout';
 export * from './TaskList';
 export * from './ui/Input';
 export * from './ui/Textarea';
