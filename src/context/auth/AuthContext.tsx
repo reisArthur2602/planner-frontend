@@ -5,47 +5,50 @@ import { User } from '../../types/user';
 import { useToken } from '../../hooks/useToken';
 
 import { toast } from 'react-toastify';
+import { Api } from '../../services/api/axios-config';
 
 export const AuthContext = createContext({} as IAuthContext);
 
 export const AuthProvider = ({ children }: AuthProvideChildren) => {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const { saveToken, deleteToken } = useToken();
-
-  const fetchUser = async () => {
-    try {
-      await UserService.details()
-        .then((response) => setUser(response))
-        .then(() => {
-          setLoading(false);
-        });
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
+  const [loading, setLoading] = useState<boolean>(false);
+  const { saveToken, deleteToken, getToken } = useToken();
 
   useEffect(() => {
-    fetchUser();
+    const token = getToken();
+    if (token)
+      (async () => {
+        Api.defaults.headers['userid'] = token;
+        setLoading(true);
+        await UserService.details()
+          .then((response) => setUser(response))
+          .catch(() => deleteToken())
+          .finally(() => setLoading(false));
+      })();
   }, []);
 
   const handleLogin = async (email: string) => {
-    await UserService.auth({ email }).then((res) => {
-      setUser(res);
-      saveToken(res.id);
-      toast.success('Bem-vindo de volta! Login realizado com sucesso.');
-      setLoading(false);
-    });
+    setLoading(true);
+
+    await UserService.auth({ email })
+      .then((res) => {
+        setUser(res);
+        saveToken(res.id);
+        toast.success('Bem-vindo de volta! Login realizado com sucesso.');
+      })
+      .finally(() => setLoading(false));
   };
 
   const handleRegister = async (email: string) => {
-    await UserService.create({ email }).then((res) => {
-      setUser(res);
-      saveToken(res.id);
-      toast.success('Cadastro realizado com sucesso! Seja Bem-vindo');
-      setLoading(false);
-    });
+    setLoading(true);
+
+    await UserService.create({ email })
+      .then((res) => {
+        setUser(res);
+        saveToken(res.id);
+        toast.success('Cadastro realizado com sucesso! Seja Bem-vindo');
+      })
+      .finally(() => setLoading(false));
   };
 
   const handleLogout = () => {
