@@ -22,16 +22,6 @@ export const Edit = () => {
   const [when, setWhen] = useState('');
   const [done, setDone] = useState<boolean>(false);
 
-  const fetchTask = async () => {
-    await TaskService.getById(id as string).then((response) => {
-      setTitle(response.title);
-      setDescription(response.description);
-      setWhen(format(new Date(response.when), "yyyy-MM-dd'T'HH:mm"));
-      setType(response.type);
-      setDone(response.done);
-    });
-  };
-
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (window.confirm('Deseja realmente atualizar a tarefa?'))
@@ -57,7 +47,14 @@ export const Edit = () => {
   };
 
   useEffect(() => {
-    fetchTask();
+    (async () =>
+      await TaskService.getById(id as string).then((response) => {
+        setTitle(response.title);
+        setDescription(response.description);
+        setWhen(format(new Date(response.when), "yyyy-MM-dd'T'HH:mm"));
+        setType(response.type);
+        setDone(response.done);
+      }))();
   }, []);
 
   return (

@@ -11,7 +11,7 @@ export const TaskCard = ({
   typeIcon,
 }: TaskCardProps) => {
   return (
-    <S.TaskCard onClick={() => onNavigation(task.id)}>
+    <S.TaskCard onClick={() => onNavigation(task.id)} done={task.done}>
       <Icon>{typeIcon}</Icon>
       <h4>{task.title}</h4>
       <Box justify="space-between">

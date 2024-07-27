@@ -16,13 +16,11 @@ export const Dashboard = () => {
   const [filter, setFilter] = useState<FilterOptions>(FILTERS[0].type);
   const [tasks, setTasks] = useState<Task[] | []>([]);
 
-  const fetchTasks = async () => {
-    const data = (await TaskService.getByFilter(filter)).filter((t) => !t.done);
-    setTasks(data);
-  };
-
   useEffect(() => {
-    fetchTasks();
+    (async () =>
+      await TaskService.getByFilter(filter).then((response) =>
+        setTasks(response)
+      ))();
   }, [filter]);
 
   return (

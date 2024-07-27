@@ -10,8 +10,7 @@ export const LateProvider = ({ children }: { children: ReactNode }) => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const { pathname } = useLocation();
-  console.log(pathname)
-
+  
   useEffect(() => {
     (async () =>
       await TaskService.late().then((response) => setTasks(response)))();
