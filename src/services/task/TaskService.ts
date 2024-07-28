@@ -37,5 +37,5 @@ export const TaskService = {
   late,
   create,
   update,
-  remove
+  remove,
 };

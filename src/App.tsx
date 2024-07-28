@@ -10,7 +10,7 @@ export const App = () => {
     <BrowserRouter>
       <AuthProvider>
         <Layout>
-          <ToastContainer position="top-right" autoClose={6000} theme="dark" />
+          <ToastContainer position="top-right" autoClose={4000} theme="dark" />
           <Routes />
         </Layout>
       </AuthProvider>

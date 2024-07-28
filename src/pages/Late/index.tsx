@@ -1,27 +1,13 @@
-import { useEffect, useState } from 'react';
 import { Box } from '../../styles/box';
 import { Highlight } from '../../styles/highlight';
 import { Title } from '../../styles/title';
-import { Task } from '../../types/task';
-import { TaskService } from '../../services/task/TaskService';
-import { Tasklist } from '../../components';
+import { Loading, Tasklist } from '../../components';
 import EmptyTask from '../../components/ui/EmptyTask';
 import { useLate } from '../../hooks/useLate';
 
 export const Late = () => {
-const {tasks , lateCount} = useLate()
-
-  // const [tasks, setTasks] = useState<Task[] | []>([]);
-
-  // const fetchTasks = async () => {
-  //   const data = await TaskService.late();
-  //   setTasks(data);
-  // };
-
-  // useEffect(() => {
-  //   fetchTasks();
-  // }, []);
-
+  const { tasks, lateCount, loading } = useLate();
+  if (loading) return <Loading />;
   return (
     <Box direction="column" gap="24px">
       {lateCount === 0 ? (

@@ -3,7 +3,7 @@ import { Box } from '../../styles/box';
 import { Content } from '../../styles/content';
 import { Form } from '../../styles/form';
 import { Title } from '../../styles/title';
-import { Input, Select, Textarea } from '../../components';
+import { Input, Loading, Select, Textarea } from '../../components';
 import { Button, GhostButton } from '../../styles/button';
 import { Checkbox } from './session/checkbox/Checkbox';
 import { useEffect, useState } from 'react';
@@ -16,6 +16,8 @@ import { toast } from 'react-toastify';
 export const Edit = () => {
   const { id } = useParams();
   const Redirect = useNavigate();
+
+  const [loading, setLoading] = useState<boolean>(true);
   const [type, setType] = useState<TypeTask>('food');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -24,26 +26,25 @@ export const Edit = () => {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (window.confirm('Deseja realmente atualizar a tarefa?'))
-      await TaskService.update({
-        id: id as string,
-        description,
-        done,
-        title,
-        type,
-        when: new Date(`${when}:00.000`).toISOString(),
-      }).then(() => {
-        toast.success('Tarefa atualizada com sucesso!');
-        Redirect('/dashboard');
-      });
+
+    await TaskService.update({
+      id: id as string,
+      description,
+      title,
+      type,
+      done,
+      when: new Date(`${when}:00.000`).toISOString(),
+    }).then(() => {
+      toast.success('Tarefa atualizada com sucesso!');
+      Redirect('/dashboard');
+    });
   };
 
   const handleDelete = async () => {
-    if (window.confirm('Deseja realmente excluir a tarefa?'))
-      await TaskService.remove({ id: id as string }).then(() => {
-        toast.success('Tarefa foi excluída com sucesso!');
-        Redirect('/dashboard');
-      });
+    await TaskService.remove({ id: id as string }).then(() => {
+      toast.success('Tarefa foi excluída com sucesso!');
+      Redirect('/dashboard');
+    });
   };
 
   useEffect(() => {
@@ -54,8 +55,11 @@ export const Edit = () => {
         setWhen(format(new Date(response.when), "yyyy-MM-dd'T'HH:mm"));
         setType(response.type);
         setDone(response.done);
+        setLoading(false);
       }))();
   }, []);
+
+  if (loading) return <Loading />;
 
   return (
     <Content>

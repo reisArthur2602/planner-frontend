@@ -9,19 +9,23 @@ import { TaskService } from '../../services/task/TaskService';
 import { FILTERS } from '../../utils/filters';
 import { FilterOptions } from './sessions/Filter/filter';
 import { FilterBar } from './sessions/FilterBar';
-import { Tasklist } from '../../components';
+import { Loading, Tasklist } from '../../components';
 import EmptyTask from '../../components/ui/EmptyTask';
 
 export const Dashboard = () => {
+  const [loading, setLoading] = useState<boolean>(true);
   const [filter, setFilter] = useState<FilterOptions>(FILTERS[0].type);
   const [tasks, setTasks] = useState<Task[] | []>([]);
 
   useEffect(() => {
     (async () =>
-      await TaskService.getByFilter(filter).then((response) =>
-        setTasks(response)
-      ))();
+      await TaskService.getByFilter(filter).then((response) => {
+        setTasks(response);
+        setLoading(false);
+      }))();
   }, [filter]);
+
+  if (loading) return <Loading />;
 
   return (
     <Box direction="column" gap="32px">
