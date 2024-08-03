@@ -3,7 +3,7 @@ import { FilterIcon } from 'lucide-react';
 import * as S from './styles';
 import { FilterProps } from './type';
 
-const Filter = ({ filter, selected, title, onChange }: FilterProps) => {
+export const Filter = ({ filter, selected, title, onChange }: FilterProps) => {
   return (
     <S.FilterCard
       key={filter}
@@ -16,4 +16,4 @@ const Filter = ({ filter, selected, title, onChange }: FilterProps) => {
   );
 };
 
-export default Filter;
+

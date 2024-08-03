@@ -1,6 +1,7 @@
-import Filter from '../filter/Filter';
+
 import { FilterBarProps } from './type';
 import { Box } from '../../../../styles/box';
+import { Filter } from '../filter/filter';
 
 export const FilterBar = ({ filter, filters, onChange }: FilterBarProps) => {
   return (
