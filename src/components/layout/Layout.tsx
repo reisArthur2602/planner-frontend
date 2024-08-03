@@ -5,7 +5,8 @@ import { useLate } from '../../hooks/useLate';
 import { NAVLINKS } from '../../utils/navlinks';
 
 import * as S from './styles';
-import { Header } from './sessions/header/Header';
+import { Header } from './sessions/Header/Header';
+
 
 
 export const Layout = ({ children }: { children: ReactNode }) => {

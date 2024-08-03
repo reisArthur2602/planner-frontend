@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { TypeTask } from '../../types/task';
 import { TYPES } from '../../utils/types';
 import { TaskService } from '../../services/task/TaskService';
-import { Input, TextArea } from '../../components';
 import { Box } from '../../styles/box';
 import { Button, GhostButton } from '../../styles/button';
 import { Content } from '../../styles/content';
 import { Form } from '../../styles/form';
 import { TypeBar } from './sessions/type-bar/TypeBar';
+import { Input } from '../../components/ui/input/Input';
+import { TextArea } from '../../components/ui/text-area/Textarea';
 
 
 export const Task = () => {

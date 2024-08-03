@@ -1,6 +1,5 @@
 import {QRCodeSVG} from 'qrcode.react';
 import { Box } from '../../styles/box';
-
 import { Title } from '../../styles/title';
 import { useAuth } from '../../hooks/useAuth';
 import { Content } from '../../styles/content';

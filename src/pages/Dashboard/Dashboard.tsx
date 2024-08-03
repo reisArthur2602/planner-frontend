@@ -8,10 +8,11 @@ import { TaskService } from '../../services/task/TaskService';
 
 import { FILTERS } from '../../utils/filters';
 
-import { FilterBar } from './sessions/filter-bar/FilterBar';
-import { Loading, Tasklist } from '../../components';
 import EmptyTask from '../../components/ui/empty-task/EmptyTask';
 import { FilterOptions } from '../../types/filter';
+import { Loading } from '../../components/ui/loading/Loading';
+import { FilterBar } from './sessions/filter-bar/FilterBar';
+import { Tasklist } from '../../components/task-list/TaskList';
 
 export const Dashboard = () => {
   const [loading, setLoading] = useState<boolean>(true);

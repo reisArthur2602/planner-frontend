@@ -1,9 +1,11 @@
 import { Box } from '../../styles/box';
 import { Highlight } from '../../styles/highlight';
 import { Title } from '../../styles/title';
-import { Loading, Tasklist } from '../../components';
+
 import EmptyTask from '../../components/ui/empty-task/EmptyTask';
 import { useLate } from '../../hooks/useLate';
+import { Loading } from '../../components/ui/loading/Loading';
+import { Tasklist } from '../../components/task-list/TaskList';
 
 export const Late = () => {
   const { tasks, lateCount, loading } = useLate();

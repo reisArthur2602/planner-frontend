@@ -3,7 +3,6 @@ import { Box } from '../../styles/box';
 import { Content } from '../../styles/content';
 import { Form } from '../../styles/form';
 import { Title } from '../../styles/title';
-import { Input, Loading, Select, TextArea,  } from '../../components';
 import { Button, GhostButton } from '../../styles/button';
 import { Checkbox } from './sessions/checkout/Checkout';
 import { useEffect, useState } from 'react';
@@ -12,6 +11,10 @@ import { TypeTask } from '../../types/task';
 import { useNavigate, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import { toast } from 'react-toastify';
+import { Loading } from '../../components/ui/loading/Loading';
+import { Select } from '../../components/ui/select/Select';
+import { Input } from '../../components/ui/input/Input';
+import { TextArea } from '../../components/ui/text-area/Textarea';
 
 export const Edit = () => {
   const { id } = useParams();

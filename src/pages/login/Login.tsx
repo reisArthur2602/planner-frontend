@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Input} from '../../components';
+
 import { Button } from '../../styles/button';
 import { Content } from '../../styles/content';
 import { Form } from '../../styles/form';
@@ -10,6 +10,7 @@ import { Highlight } from '../../styles/highlight';
 import { useState } from 'react';
 
 import { useAuth } from '../../hooks/useAuth';
+import { Input } from '../../components/ui/input/Input';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -37,7 +38,6 @@ export const Login = () => {
             placeholder="seuemail@email.com"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            // required
           />
           <Button>Entrar</Button>
         </Box>

@@ -1,5 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Dashboard, Edit, Late, Sync, Task } from '../pages';
+import { Dashboard } from '../pages/dashboard/Dashboard';
+import { Late } from '../pages/late/Late';
+import { Task } from '../pages/task/Task';
+import { Sync } from '../pages/sync/Sync';
+import { Edit } from '../pages/edit/Edit';
 
 export const AuthRoutes = () => {
   return (

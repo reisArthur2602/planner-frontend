@@ -3,6 +3,7 @@ import { BellIcon } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
 import * as S from './styles';
 import { HeaderProps } from './type';
 
