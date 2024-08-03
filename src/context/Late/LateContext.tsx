@@ -1,8 +1,9 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { LateContextData } from './late';
+
 import { Task } from '../../types/task';
 import { TaskService } from '../../services/task/TaskService';
 import { useLocation } from 'react-router-dom';
+import { LateContextData } from './type';
 
 export const LateContext = createContext({} as LateContextData);
 

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from 'react';
-import { AuthProvideChildren, IAuthContext } from './auth';
+import { AuthProvideChildren, IAuthContext } from './type';
 import { UserService } from '../../services/api/user/UserService';
 import { User } from '../../types/user';
 import { useToken } from '../../hooks/useToken';

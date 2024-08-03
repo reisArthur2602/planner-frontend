@@ -1,4 +1,4 @@
-import { FilterOptions } from '../pages/Dashboard/sessions/Filter/filter';
+import { FilterOptions } from '../pages/dashboard/sessions/filter/filter';
 
 export type FiltersData = {
   type: FilterOptions;

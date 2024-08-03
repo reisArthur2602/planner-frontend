@@ -3,7 +3,8 @@ import { AuthProvider } from './context/auth/AuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { Layout } from './components';
-import { Routes } from './routes';
+import Routes from './routes';
+
 
 export const App = () => {
   return (
