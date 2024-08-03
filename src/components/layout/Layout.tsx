@@ -4,8 +4,8 @@ import { useAuth } from '../../hooks/useAuth';
 import { useTask } from '../../hooks/useTask';
 import { NAVLINKS } from '../../utils/navlinks';
 
+import { HeaderLayout } from './sessions/header-layout/HeaderLayout';
 import * as S from './styles';
-import { Header } from './sessions/header/Header';
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const { isAuthenticated, handleLogout } = useAuth();
@@ -13,7 +13,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 
   return (
     <S.LayoutContainer>
-      <Header
+      <HeaderLayout
         isAuthenticated={isAuthenticated}
         navlinks={NAVLINKS}
         count={lateCount}

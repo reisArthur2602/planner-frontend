@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import * as S from './styles';
 import { HeaderProps } from './type';
 
-export const Header = ({ count, navlinks, isAuthenticated }: HeaderProps) => {
+export const HeaderLayout = ({ count, navlinks, isAuthenticated }: HeaderProps) => {
   const [pathname, setPathname] = useState<string | null>(null);
   const location = useLocation();
 

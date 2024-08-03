@@ -1,11 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 import { AuthProvider } from './context/auth/AuthContext';
-
-import { Layout } from './components/layout/Layout';
-
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import { Layout } from './components/layout/Layout';
 
 export const App = () => {
   return (
