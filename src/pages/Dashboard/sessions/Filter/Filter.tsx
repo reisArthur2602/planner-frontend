@@ -1,6 +1,7 @@
 import { FilterIcon } from 'lucide-react';
-import { FilterProps } from './filter';
+
 import * as S from './styles';
+import { FilterProps } from './type';
 
 const Filter = ({ filter, selected, title, onChange }: FilterProps) => {
   return (

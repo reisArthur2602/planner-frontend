@@ -1,5 +1,6 @@
 import { FiltersData } from "../../../../utils/filters";
-import { FilterOptions } from "../filter/filter";
+import { FilterOptions } from "../filter/type";
+
 
 export type FilterBarProps = {
   filter: FilterOptions;

@@ -7,10 +7,11 @@ import { Title } from '../../styles/title';
 import { TaskService } from '../../services/task/TaskService';
 
 import { FILTERS } from '../../utils/filters';
-import { FilterOptions } from './sessions/filter/filter';
+
 import { FilterBar } from './sessions/filter-bar/FilterBar';
 import { Loading, Tasklist } from '../../components';
 import EmptyTask from '../../components/ui/empty-task/EmptyTask';
+import { FilterOptions } from '../../types/filter';
 
 export const Dashboard = () => {
   const [loading, setLoading] = useState<boolean>(true);
