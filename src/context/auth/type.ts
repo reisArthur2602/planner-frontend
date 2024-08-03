@@ -1,6 +1,6 @@
 import { User } from '../../types/user';
 
-export interface IAuthContext {
+export interface IAuthContext  {
   user: User | null;
   isAuthenticated: boolean;
   loading: boolean;

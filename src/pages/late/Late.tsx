@@ -2,13 +2,14 @@ import { Box } from '../../styles/box';
 import { Highlight } from '../../styles/highlight';
 import { Title } from '../../styles/title';
 
-import EmptyTask from '../../components/ui/empty-task/EmptyTask';
-import { useLate } from '../../hooks/useLate';
+import { EmptyTask } from '../../components/ui/empty-task/EmptyTask';
+import { useTask } from '../../hooks/useTask';
 import { Loading } from '../../components/ui/loading/Loading';
 import { Tasklist } from '../../components/task-list/TaskList';
 
-export const Late = () => {
-  const { tasks, lateCount, loading } = useLate();
+const Late = () => {
+  const { lateTasks, lateCount, loading } = useTask();
+
   if (loading) return <Loading />;
   return (
     <Box direction="column" gap="24px">
@@ -19,9 +20,11 @@ export const Late = () => {
           <Title>
             Tarefas Atrasadas <Highlight>{`(${lateCount})`}</Highlight>
           </Title>
-          <Tasklist tasks={tasks} />
+          <Tasklist tasks={lateTasks} />
         </>
       )}
     </Box>
   );
 };
+
+export default Late;

@@ -5,16 +5,15 @@ import { Highlight } from '../../styles/highlight';
 import { Title } from '../../styles/title';
 
 import { TaskService } from '../../services/task/TaskService';
-
 import { FILTERS } from '../../utils/filters';
 
-import EmptyTask from '../../components/ui/empty-task/EmptyTask';
-import { FilterOptions } from '../../types/filter';
 import { Loading } from '../../components/ui/loading/Loading';
 import { FilterBar } from './sessions/filter-bar/FilterBar';
 import { Tasklist } from '../../components/task-list/TaskList';
+import { EmptyTask } from '../../components/ui/empty-task/EmptyTask';
+import { FilterOptions } from './sessions/filter/type';
 
-export const Dashboard = () => {
+const Home = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [filter, setFilter] = useState<FilterOptions>(FILTERS[0].type);
   const [tasks, setTasks] = useState<Task[] | []>([]);
@@ -46,3 +45,5 @@ export const Dashboard = () => {
     </Box>
   );
 };
+
+export default Home;

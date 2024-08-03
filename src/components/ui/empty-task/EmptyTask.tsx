@@ -7,7 +7,7 @@ type IEmptyTask = {
   title: string;
 };
 
-const EmptyTask = ({ title }: IEmptyTask) => {
+export const EmptyTask = ({ title }: IEmptyTask) => {
   return (
     <Content>
       <S.EmptyTaskContainer>
@@ -18,4 +18,4 @@ const EmptyTask = ({ title }: IEmptyTask) => {
   );
 };
 
-export default EmptyTask;
+

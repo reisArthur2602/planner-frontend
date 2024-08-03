@@ -13,7 +13,7 @@ import { Input } from '../../components/ui/input/Input';
 import { TextArea } from '../../components/ui/text-area/Textarea';
 
 
-export const Task = () => {
+const Task = () => {
   const [type, setType] = useState<TypeTask>('gym');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -79,3 +79,5 @@ export const Task = () => {
     </Content>
   );
 };
+
+export default Task

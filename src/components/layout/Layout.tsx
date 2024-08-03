@@ -1,13 +1,11 @@
 import { ReactNode } from 'react';
 import { LogOut } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
-import { useLate } from '../../hooks/useLate';
+import { useLate } from '../../hooks/useTask';
 import { NAVLINKS } from '../../utils/navlinks';
 
 import * as S from './styles';
-import { Header } from './sessions/Header/Header';
-
-
+import { Header } from './sessions/header/Header';
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const { isAuthenticated, handleLogout } = useAuth();

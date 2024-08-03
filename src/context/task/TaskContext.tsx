@@ -3,12 +3,12 @@ import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Task } from '../../types/task';
 import { TaskService } from '../../services/task/TaskService';
 import { useLocation } from 'react-router-dom';
-import { LateContextData } from './type';
+import { TaskContextProps } from './type';
 
-export const LateContext = createContext({} as LateContextData);
+export const TaskContext = createContext({} as TaskContextProps);
 
-export const LateProvider = ({ children }: { children: ReactNode }) => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+const TaskProvider = ({ children }: { children: ReactNode }) => {
+  const [lateTasks, setLateTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const { pathname } = useLocation();
@@ -16,14 +16,18 @@ export const LateProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     (async () =>
       await TaskService.late().then((response) => {
-        setTasks(response);
+        setLateTasks(response);
         setLoading(false);
       }))();
   }, [pathname]);
 
   return (
-    <LateContext.Provider value={{ tasks, lateCount: tasks.length, loading }}>
+    <TaskContext.Provider
+      value={{ lateTasks, lateCount: lateTasks.length, loading }}
+    >
       {children}
-    </LateContext.Provider>
+    </TaskContext.Provider>
   );
 };
+
+export { TaskProvider };

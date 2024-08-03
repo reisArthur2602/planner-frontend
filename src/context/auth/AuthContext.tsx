@@ -6,11 +6,9 @@ import { useToken } from '../../hooks/useToken';
 
 import { toast } from 'react-toastify';
 import { Api } from '../../services/api/axios-config';
-import { LateProvider } from '../late/LateContext';
+import { LateProvider } from '../task/TaskContext';
 
-
-
-export const AuthContext = createContext({} as IAuthContext);
+export const AuthContext = createContext({} as IAuthContext); 
 
 export const AuthProvider = ({ children }: AuthProvideChildren) => {
   const [user, setUser] = useState<User | null>(null);
@@ -54,7 +52,7 @@ export const AuthProvider = ({ children }: AuthProvideChildren) => {
       .finally(() => setLoading(false));
   };
 
-  const handleLogout = () => {
+  const handleLogout = () =>  {
     deleteToken();
     setUser(null);
   };

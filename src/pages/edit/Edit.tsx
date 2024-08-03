@@ -16,7 +16,7 @@ import { Select } from '../../components/ui/select/Select';
 import { Input } from '../../components/ui/input/Input';
 import { TextArea } from '../../components/ui/text-area/Textarea';
 
-export const Edit = () => {
+const Edit = () => {
   const { id } = useParams();
   const Redirect = useNavigate();
 
@@ -124,3 +124,5 @@ export const Edit = () => {
     </Content>
   );
 };
+
+export default Edit;

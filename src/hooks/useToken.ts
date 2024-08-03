@@ -1,6 +1,6 @@
 import { Api } from '../services/api/axios-config';
 
-interface IUseToken {
+type IUseToken =  {
   saveToken(token: string): void;
   getToken(): string | null;
   deleteToken(): void;
