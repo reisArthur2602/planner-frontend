@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/assets/banner - planner 2x.jpg" alt="Logo" />
+  <img src="src/assets/Banner.jpg" alt="Logo" />
 </p>
 
 <h1 align="center"> Planner - Frontend</h1>
