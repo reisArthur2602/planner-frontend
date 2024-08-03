@@ -31,6 +31,7 @@
 
 1. Clone o repositório `git clone https://github.com/reisArthur2602/planner-backend`
 2. Instale as dependências `npm install`
+3. Configure as variáveis de ambiente na raiz do projeto `VITE_API_URL=`
 3. Rode o projeto `npm run dev`
 
 <br />

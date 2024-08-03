@@ -1,13 +1,12 @@
 import { Loading } from '../components/ui/loading/Loading';
 import { useAuth } from '../hooks/useAuth';
-import { AppRoutes } from './AppRoutes';
-import { AuthRoutes } from './AuthRoutes';
+import UserRoutes from './user';
+import AuthRoutes from './auth';
 
-
-export const Routes = () => {
+export default () => {
   const { loading, isAuthenticated } = useAuth();
 
   if (loading) return <Loading />;
 
-  return !loading && isAuthenticated ? <AuthRoutes /> : <AppRoutes />;
+  return !loading && isAuthenticated ? <AuthRoutes /> : <UserRoutes />;
 };

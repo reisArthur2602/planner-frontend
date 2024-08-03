@@ -14,11 +14,13 @@ const TaskProvider = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    (async () =>
-      await TaskService.late().then((response) => {
-        setLateTasks(response);
-        setLoading(false);
-      }))();
+    if (pathname !== '/' && pathname !== '/register') {
+      (async () =>
+        await TaskService.late().then((response) => {
+          setLateTasks(response);
+          setLoading(false);
+        }))();
+    }
   }, [pathname]);
 
   return (

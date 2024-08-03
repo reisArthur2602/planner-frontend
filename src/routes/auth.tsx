@@ -7,7 +7,7 @@ import Sync from '../pages/sync/Sync';
 import Home from '../pages/home/Home';
 
 
-export const AuthRoutes = () => {
+export default () => {
   return (
     <Routes>
       <Route path="/dashboard" element={<Home />} />

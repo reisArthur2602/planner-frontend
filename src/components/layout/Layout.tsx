@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { LogOut } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
-import { useLate } from '../../hooks/useTask';
+import { useTask } from '../../hooks/useTask';
 import { NAVLINKS } from '../../utils/navlinks';
 
 import * as S from './styles';
@@ -9,7 +9,7 @@ import { Header } from './sessions/header/Header';
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const { isAuthenticated, handleLogout } = useAuth();
-  const { lateCount } = useLate();
+  const { lateCount } = useTask();
 
   return (
     <S.LayoutContainer>

@@ -1,5 +1,4 @@
-import { FilterOptions } from "../types/filter";
-
+import { FilterOptions } from '../pages/home/sessions/filter/type';
 
 export type FiltersData = {
   type: FilterOptions;
