@@ -1,24 +1,23 @@
-import { useState } from 'react';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
-import { TypeTask } from '../../types/task';
-import { TYPES } from '../../utils/types';
-import { TaskService } from '../../services/task/TaskService';
-import { Box } from '../../styles/box';
-import { Button, GhostButton } from '../../styles/button';
-import { Content } from '../../styles/content';
-import { Form } from '../../styles/form';
-import { TypeBar } from './sessions/type-bar/TypeBar';
-import { Input } from '../../components/ui/input/Input';
-import { TextArea } from '../../components/ui/text-area/Textarea';
-
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { TypeTask } from "../../types/task";
+import { TYPES } from "../../utils/types";
+import { TaskService } from "../../services/task/TaskService";
+import { Box } from "../../styles/box";
+import { Button, GhostButton } from "../../styles/button";
+import { Content } from "../../styles/content";
+import { Form } from "../../styles/form";
+import { TypeBar } from "./sessions/type-bar/TypeBar";
+import { Input } from "../../components/ui/input/Input";
+import { TextArea } from "../../components/ui/text-area/Textarea";
 
 const Task = () => {
-  const [type, setType] = useState<TypeTask>('gym');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [time, setTime] = useState('');
-  const [date, setDate] = useState('');
+  const [type, setType] = useState<TypeTask>("gym");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
 
   const navigate = useNavigate();
 
@@ -34,8 +33,8 @@ const Task = () => {
       type,
     });
 
-    toast.success('Tarefa criada com sucesso!');
-    navigate('/dashboard');
+    toast.success("Tarefa criada com sucesso!");
+    navigate("/dashboard");
   };
 
   return (
@@ -69,7 +68,7 @@ const Task = () => {
           value={time}
         />
         <Box justify="end">
-          <GhostButton type="button" onClick={() => navigate('/dashboard')}>
+          <GhostButton type="button" onClick={() => navigate("/dashboard")}>
             Cancelar
           </GhostButton>
 
@@ -80,4 +79,4 @@ const Task = () => {
   );
 };
 
-export default Task
+export default Task;
